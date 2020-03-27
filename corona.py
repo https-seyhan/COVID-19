@@ -3,6 +3,8 @@ import os
 import spacy
 from spacy.matcher import Matcher
 from spacy.tokens import Doc
+import numpy as np
+from numpy import array
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -20,12 +22,13 @@ pattern10 = [{"LOWER": "vitamin"}]
 
 word_list = []
 word_dict = {}
+allWords = []
 
 text_list = [['', '']]
 
 customize_stop_words = [
     'From','from', 'To', 'to', 'Hospital', 'hospital', '.', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
-	'[', ']'
+	'[', ']', ';'
 ]
 for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
@@ -111,7 +114,7 @@ def nlpWork(abstract, textcount):
 		#print(words[0])
 		#print(words[1])
 		#coronaAnalysis(sha, nlp(words), wordcount, textcount)
-		bows(words[0], nlp(words[1]), wordcount, abstract, textcount)
+		bows(words[0], nlp(words[1]), wordcount, textcount)
 	print("word count :", wordcount)
 
 	#for ind in len(abstract):
@@ -123,7 +126,7 @@ def coronaAnalysis(sha, doc, count, textcount):
 	textcount = 0
 
 
-	cleantext = [t.text for t in doc if  not t.is_stop  and t.ent_type_ != 'GPE' ] # remove stop words. Exclude Geograpic location
+	cleantext = [t.text for t in doc if  not t.is_stop  and t.ent_type_ != 'GPE' ] # remove stop words. Exclude Geographic location
 
 	# convert list to nlp doc
 	cleandoc = Doc(nlp.vocab, words=cleantext)
@@ -156,9 +159,20 @@ def coronaAnalysis(sha, doc, count, textcount):
 	#print("Document at " , count, cleantext)
 
 
-def bows(sha, abstract,  doc, count, textcount):
-	print("Bag of Words Called")
-	print('Abstract :', abstract, '\n')
+def bows(sha, abstract, count, textcount):
+
+	#print("Bag of Words Called")
+
+	cleanabstract = [t.text for t in abstract if not t.is_stop and t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
+	#print('Abstract :', cleanabstract, '\n')
+	print(len(cleanabstract))
+	for word in range(len(cleanabstract)):
+		#print(cleanabstract[word])
+		allWords.append(cleanabstract[word])
+	#allWords.append(cleanabstract)
+	#print('Abstract :', allWords, '\n')
+	#print(array(allWords).shape)
+
 
 
 
