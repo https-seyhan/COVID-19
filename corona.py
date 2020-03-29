@@ -5,6 +5,11 @@ from spacy.matcher import Matcher
 from spacy.tokens import Doc
 import numpy as np
 from numpy import array
+from sklearn.feature_extraction.text import CountVectorizer
+from collections import Counter
+from matplotlib import pyplot as plt
+import seaborn as sb
+#Use bag of to get gather words that are useful for medical care
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -28,7 +33,7 @@ text_list = [['', '']]
 
 customize_stop_words = [
     'From','from', 'To', 'to', 'Hospital', 'hospital', '.', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
-	'[', ']', ';'
+	'[', ']', ';', "\xa0", '/', 'virus', 'studies', '1', 'BACKGROUND', 'population', 'previously', 'countries', 'dogs', 'data'
 ]
 for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
@@ -165,7 +170,7 @@ def bows(sha, abstract, count, textcount):
 
 	cleanabstract = [t.text for t in abstract if not t.is_stop and t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
 	#print('Abstract :', cleanabstract, '\n')
-	print(len(cleanabstract))
+	#print(len(cleanabstract))
 	for word in range(len(cleanabstract)):
 		#print(cleanabstract[word])
 		allWords.append(cleanabstract[word])
@@ -179,8 +184,25 @@ def bows(sha, abstract, count, textcount):
 
 
 if __name__ == '__main__':
+	print("Process Started!!!")
 	readfile()
 	print(word_dict)
 	df = pd.DataFrame(text_list, columns=['sha', 'abstract'])
 
-	df.to_csv('vitamin.csv', sep=',', index=False)
+	print('Abstract :', allWords, '\n')
+
+	bow_vector = CountVectorizer(tokenizer=allWords, ngram_range=(1, 1))
+	#print("Bow Vector :", bow_vector)
+	word_freq = Counter(allWords)
+	most_common = word_freq.most_common(1000000)
+	#print("Bag of Word :", most_common)
+
+	bow = pd.DataFrame(most_common)
+	print(bow.head(5))
+	sb.distplot(bow[1])
+	plt.show()
+	print("word freq is being written into csv")
+	bow.to_csv('wordfreq.csv', sep=',', index=False)
+	print("word freq has been written into csv")
+	#df.to_csv('vitamin.csv', sep=',', index=False)
+	print("Process Ended!!!")
