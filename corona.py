@@ -3,6 +3,7 @@ import os
 import spacy
 from spacy.matcher import Matcher
 from spacy.tokens import Doc
+
 import numpy as np
 from numpy import array
 from sklearn.feature_extraction.text import CountVectorizer
@@ -31,9 +32,14 @@ allWords = []
 
 text_list = [['', '']]
 
+#customize_stop_words = [
+#    'From','from', 'To', 'to', 'Hospital', 'hospital', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
+#	'[', ']', ';', "\xa0", '/', 'virus', 'studies', '1', 'BACKGROUND', 'population', 'previously', 'countries', 'dogs', 'data',
+#	'infection', '%', 'viral'
+#]
+
 customize_stop_words = [
-    'From','from', 'To', 'to', 'Hospital', 'hospital', '.', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
-	'[', ']', ';', "\xa0", '/', 'virus', 'studies', '1', 'BACKGROUND', 'population', 'previously', 'countries', 'dogs', 'data'
+     "\xa0", ','
 ]
 for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
@@ -118,20 +124,21 @@ def nlpWork(abstract, textcount):
 		wordcount +=1
 		#print(words[0])
 		#print(words[1])
+		coronaAnalysis(words[0], nlp(words[1]), wordcount, textcount)
 		#coronaAnalysis(sha, nlp(words), wordcount, textcount)
-		bows(words[0], nlp(words[1]), wordcount, textcount)
+		#bows(words[0], nlp(words[1]), wordcount, textcount)
 	print("word count :", wordcount)
 
 	#for ind in len(abstract):
 		#print(abstract[i])
 
 
-def coronaAnalysis(sha, doc, count, textcount):
+def coronaAnalysis(sha, abstract, count, textcount):
 	#doc = nlp(text)
 	textcount = 0
 
 
-	cleantext = [t.text for t in doc if  not t.is_stop  and t.ent_type_ != 'GPE' ] # remove stop words. Exclude Geographic location
+	cleantext = [t.text for t in abstract if  not t.is_stop  and t.ent_type_ != 'GPE' ] # remove stop words. Exclude Geographic location
 
 	# convert list to nlp doc
 	cleandoc = Doc(nlp.vocab, words=cleantext)
@@ -147,9 +154,43 @@ def coronaAnalysis(sha, doc, count, textcount):
 
 
 	#print(matches)
+
+
+
 	for match_id, start, end in matches:
+
+		moveleft = -2
+		moveright = 0
+
+		leftwords = []
+		rightwords = []
+
 		string_id = nlp.vocab.strings[match_id]  # Get string representation
 		span = cleandoc[start:end]  # The matched span
+		print("Span :", span, '\n')
+		print(start, end, span.text)
+		print("Len clean Doc :", len(cleandoc))
+		#print(cleandoc[start-1])
+		while str(cleandoc[start - moveleft]) != ".":
+
+			print("Prev Word :", cleandoc[start - moveleft])
+			moveleft= moveleft +1
+			print("movement :", moveleft)
+			leftwords.append(cleandoc[start - moveleft])
+		leftwords.reverse()
+		print("Left Words :", leftwords)
+
+		while str(cleandoc[end + moveright]) != ".":
+
+			print("Next Word :", cleandoc[end + moveright])
+			moveright = moveright + 1
+			print("movement :", moveright)
+			rightwords.append(cleandoc[end + moveright])
+		#rightwords.reverse()
+		print("Right Words :", rightwords)
+
+
+
 		#print(start, end, span.text, span.label)
 		#print(doc)
 		#print(cleandoc)
@@ -188,21 +229,22 @@ if __name__ == '__main__':
 	readfile()
 	print(word_dict)
 	df = pd.DataFrame(text_list, columns=['sha', 'abstract'])
+	#print('Abstract :', text_list, '\n')
+	#print('Abstract :', allWords, '\n')
 
-	print('Abstract :', allWords, '\n')
-
-	bow_vector = CountVectorizer(tokenizer=allWords, ngram_range=(1, 1))
+	#bow_vector = CountVectorizer(tokenizer=allWords, ngram_range=(1, 1))
 	#print("Bow Vector :", bow_vector)
-	word_freq = Counter(allWords)
-	most_common = word_freq.most_common(1000000)
+	#word_freq = Counter(allWords)
+	#most_common = word_freq.most_common(1000000)
 	#print("Bag of Word :", most_common)
 
-	bow = pd.DataFrame(most_common)
-	print(bow.head(5))
-	sb.distplot(bow[1])
-	plt.show()
+	#bow = pd.DataFrame(most_common)
+	#show top 1000 words
+	#print(bow.head(1000))
+	#sb.distplot(bow[1])
+	#plt.show()
 	print("word freq is being written into csv")
-	bow.to_csv('wordfreq.csv', sep=',', index=False)
+	#bow.to_csv('wordfreq.csv', sep=',', index=False)
 	print("word freq has been written into csv")
 	#df.to_csv('vitamin.csv', sep=',', index=False)
 	print("Process Ended!!!")
