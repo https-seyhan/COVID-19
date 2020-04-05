@@ -25,6 +25,20 @@ pattern7 = [{"LOWER": "vaccine"}]
 pattern8 = [{"LOWER": "vaccines"}]
 pattern9 = [{"LOWER": "drug"}]
 pattern10 = [{"LOWER": "vitamin"}]
+pattern11 = [{"LOWER": "nursing"}]
+pattern12 = [{"LOWER": "medical staff"}]
+pattern13 = [{"LOWER": "Acute Respiratory Distress Syndrome"}] # not found in the text
+pattern14 = [{"LOWER": "Extracorporeal membrane oxygenation"}]
+pattern15 = [{"LOWER": "ventilation"}]
+pattern16 = [{"LOWER": "manifestations"}]
+pattern17 = [{"LOWER": "EUA"}]
+pattern18 = [{"LOWER": "CLIA"}]
+pattern19 = [{"LOWER": "elastomeric"}]
+pattern20 = [{"LOWER": "N95"}]
+pattern21 = [{"LOWER": "telemedicine"}]
+pattern22 = [{"LOWER": "outcomes"}]
+
+
 
 word_list = []
 word_dict = {}
@@ -145,11 +159,12 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 	matcher = Matcher(nlp.vocab)
 
+	#print("Search for ", pattern22)
 	#matcher.add("medicalcare", None, pattern2, pattern3, pattern4, pattern5)
 	#matcher.add("medicalcare", None, pattern2)
 	#matcher.add("medicalcare", None, pattern5)
 	#matcher.add("medicalcare", None, pattern6)
-	matcher.add("medicalcare", None, pattern10)
+	matcher.add("medicalcare", None, pattern22)
 	matches = matcher(cleandoc)
 
 
@@ -159,7 +174,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 	for match_id, start, end in matches:
 
-		moveleft = -2
+		moveleft = 0
 		moveright = 0
 
 		leftwords = []
@@ -167,25 +182,42 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 		string_id = nlp.vocab.strings[match_id]  # Get string representation
 		span = cleandoc[start:end]  # The matched span
-		print("Span :", span, '\n')
+		#print("Span :", span, '\n')
 		print(start, end, span.text)
-		print("Len clean Doc :", len(cleandoc))
+		#print("Len clean Doc :", len(cleandoc))
+		#print("Moveleft ", moveleft)
+		#print(" Doc Lenght ", len(cleandoc))
 		#print(cleandoc[start-1])
-		while str(cleandoc[start - moveleft]) != ".":
+		while ((len(cleandoc) >  start + moveleft) and (str(cleandoc[start - moveleft]) != ".") ):
 
-			print("Prev Word :", cleandoc[start - moveleft])
+			#print("Prev Word :", cleandoc[start - moveleft])
 			moveleft= moveleft +1
-			print("movement :", moveleft)
+			#print("movement :", moveleftprint("Sum :", end + moveright))
 			leftwords.append(cleandoc[start - moveleft])
+			#print("Sum Left :", start + moveleft)
+			if len(cleandoc) ==  start + moveleft:
+				break
 		leftwords.reverse()
 		print("Left Words :", leftwords)
+		#print("Moveright ", moveright)
+		#print(" Doc Lenght ", len(cleandoc))
 
-		while str(cleandoc[end + moveright]) != ".":
+		while ((len(cleandoc) >  end + moveright) and (str(cleandoc[end + moveright]) != ".") ):
 
-			print("Next Word :", cleandoc[end + moveright])
+			#print("Next Word :", cleandoc[end + moveright])
 			moveright = moveright + 1
-			print("movement :", moveright)
+			#print("movement :", moveright)
+			#print("MOVE RIGHT count :", moveright)
+			#print("End", end)
+			#print("Abstract Length : ", len(abstract))
+			#print("Clean Doc Size :", len(cleandoc))
+
+			#print("Sum :", end + moveright)
+
+			if len(cleandoc) ==  end + moveright:
+				break
 			rightwords.append(cleandoc[end + moveright])
+
 		#rightwords.reverse()
 		print("Right Words :", rightwords)
 
