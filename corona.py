@@ -10,6 +10,10 @@ from sklearn.feature_extraction.text import CountVectorizer
 from collections import Counter
 from matplotlib import pyplot as plt
 import seaborn as sb
+import re
+
+#from timer import  Timer
+import time
 #Use bag of to get gather words that are useful for medical care
 
 nlp = spacy.load("en_core_web_sm")
@@ -45,6 +49,7 @@ word_dict = {}
 allWords = []
 
 text_list = [['', '']]
+medical_care = [['', '', '']]
 
 #customize_stop_words = [
 #    'From','from', 'To', 'to', 'Hospital', 'hospital', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
@@ -164,7 +169,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	#matcher.add("medicalcare", None, pattern2)
 	#matcher.add("medicalcare", None, pattern5)
 	#matcher.add("medicalcare", None, pattern6)
-	matcher.add("medicalcare", None, pattern22)
+	matcher.add("medicalcare", None, pattern21)
 	matches = matcher(cleandoc)
 
 
@@ -191,14 +196,15 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		while ((len(cleandoc) >  start + moveleft) and (str(cleandoc[start - moveleft]) != ".") ):
 
 			#print("Prev Word :", cleandoc[start - moveleft])
+			leftwords.append(cleandoc[start - moveleft])
 			moveleft= moveleft +1
 			#print("movement :", moveleftprint("Sum :", end + moveright))
-			leftwords.append(cleandoc[start - moveleft])
+
 			#print("Sum Left :", start + moveleft)
 			if len(cleandoc) ==  start + moveleft:
 				break
 		leftwords.reverse()
-		print("Left Words :", leftwords)
+		#print("Left Words :", leftwords)
 		#print("Moveright ", moveright)
 		#print(" Doc Lenght ", len(cleandoc))
 
@@ -219,14 +225,20 @@ def coronaAnalysis(sha, abstract, count, textcount):
 			rightwords.append(cleandoc[end + moveright])
 
 		#rightwords.reverse()
-		print("Right Words :", rightwords)
+		#print("Right Words :", rightwords)
+		combinedList = leftwords + rightwords
+		sentence = ' '.join(map(str, combinedList))
+		sentence.replace(".","")
+		#print("Combined Words ", combinedList, 'SHA ', sha, 'Keyword ', span.text)
+		print("Sentence ", sentence, 'SHA ', sha, 'Keyword ', span.text)
 
+		medical_care.append([sha, span.text, sentence])
 
 
 		#print(start, end, span.text, span.label)
 		#print(doc)
 		#print(cleandoc)
-		text_list.append([sha, cleandoc])
+		#text_list.append([sha, cleandoc])
 		#word_dict[span.text] = {}  # create dictionary for keyword
 		#word_dict[span.text][cleandoc[start - 1]] = -1
 		textcount = +1
@@ -241,7 +253,8 @@ def bows(sha, abstract, count, textcount):
 
 	#print("Bag of Words Called")
 
-	cleanabstract = [t.text for t in abstract if not t.is_stop and t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
+	#cleanabstract = [t.text for t in abstract if not t.is_stop and t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
+	cleanabstract = [t.text for t in abstract if t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
 	#print('Abstract :', cleanabstract, '\n')
 	#print(len(cleanabstract))
 	for word in range(len(cleanabstract)):
@@ -252,12 +265,10 @@ def bows(sha, abstract, count, textcount):
 	#print(array(allWords).shape)
 
 
-
-
-
-
 if __name__ == '__main__':
 	print("Process Started!!!")
+	start = time.time()
+
 	readfile()
 	print(word_dict)
 	df = pd.DataFrame(text_list, columns=['sha', 'abstract'])
@@ -277,6 +288,11 @@ if __name__ == '__main__':
 	#plt.show()
 	print("word freq is being written into csv")
 	#bow.to_csv('wordfreq.csv', sep=',', index=False)
-	print("word freq has been written into csv")
+	df = pd.DataFrame(medical_care, columns=['sha', 'keyword', 'medical_care'])
+
+	df.to_csv('medical_care.csv', sep=',', index=False)
+	print("Medicare Data has been written into csv")
 	#df.to_csv('vitamin.csv', sep=',', index=False)
 	print("Process Ended!!!")
+	end = time.time()
+	print("Time taken to run the code ", (end - start) // 60, " minutes")
