@@ -273,11 +273,11 @@ def highest_density_interval(pmf, p, debug=False):
                             f'High_{p * 100:.0f}'])
 
 
-hdi = highest_density_interval(posteriors, p=.1, debug=True)
+hdi = highest_density_interval(posteriors, p=.75, debug=True)
 hdi.tail()
 
 #Note that this takes a while to execute - it's not the most efficient algorithm
-hdis = highest_density_interval(posteriors, p=.1)
+hdis = highest_density_interval(posteriors, p=.75)
 
 most_likely = posteriors.idxmax().rename('ML')
 
@@ -292,16 +292,92 @@ print(most_likely_values)
 ax = most_likely_values.plot(marker='o',
                              label='Most Likely',
                              title=f'$R_t$ by day',
-                             c='k',
+                             c='blue',
                              markersize=4)
 
 ax.fill_between(hdi.index,
-                hdi['Low_10'],
-                hdi['High_10'],
-                color='k',
+                hdi['Low_75'],
+                hdi['High_75'],
+                color='blue',
                 alpha=.1,
                 lw=0,
                 label='HDI')
 
 ax.legend();
+plt.show()
+
+def plot_rt(result, ax):
+    ax.set_title(f"NSW")
+
+    # Colors
+    ABOVE = [1, 0, 0]
+    MIDDLE = [1, 1, 1]
+    BELOW = [0, 0, 0]
+    cmap = ListedColormap(np.r_[
+                              np.linspace(BELOW, MIDDLE, 25),
+                              np.linspace(MIDDLE, ABOVE, 25)
+                          ])
+    color_mapped = lambda y: np.clip(y, .5, 1.5) - .5
+
+    index = result['ML'].index.get_level_values('notification_date')
+    values = result['ML'].values
+
+    # Plot dots and line
+    ax.plot(index, values, c='k', zorder=1, alpha=.25)
+    ax.scatter(index,
+               values,
+               s=40,
+               lw=.5,
+               c=cmap(color_mapped(values)),
+               edgecolors='k', zorder=2)
+
+    # Aesthetically, extrapolate credible interval by 1 day either side
+    lowfn = interp1d(date2num(index),
+                     result['Low_90'].values,
+                     bounds_error=False,
+                     fill_value='extrapolate')
+
+    highfn = interp1d(date2num(index),
+                      result['High_90'].values,
+                      bounds_error=False,
+                      fill_value='extrapolate')
+
+    extended = pd.date_range(start=pd.Timestamp('2020-03-01'),
+                             end=index[-1] + pd.Timedelta(days=1))
+
+    ax.fill_between(extended,
+                    lowfn(date2num(extended)),
+                    highfn(date2num(extended)),
+                    color='k',
+                    alpha=.1,
+                    lw=0,
+                    zorder=3)
+
+    ax.axhline(1.0, c='k', lw=1, label='$R_t=1.0$', alpha=.25);
+
+    # Formatting
+    ax.xaxis.set_major_locator(mdates.MonthLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
+    ax.xaxis.set_minor_locator(mdates.DayLocator())
+
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:.1f}"))
+    ax.yaxis.tick_right()
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.margins(0)
+    ax.grid(which='major', axis='y', c='k', alpha=.1, zorder=-2)
+    ax.margins(0)
+    ax.set_ylim(0.0, 5.0)
+    ax.set_xlim(pd.Timestamp('2020-03-01'), result.index.get_level_values('notification_date')[-1] + pd.Timedelta(days=1))
+    fig.set_facecolor('w')
+
+
+fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
+
+plot_rt(result, ax)
+ax.set_title(f'Real-time $R_t$ for NSW')
+ax.xaxis.set_major_locator(mdates.WeekdayLocator())
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 plt.show()
