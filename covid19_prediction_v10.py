@@ -18,6 +18,20 @@ dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=',')
 AUdailytests = dailytests[dailytests['location'] == 'Australia']
 
+keepAU = ['date', 'total_tests', 'population']
+
+AUdailytests = AUdailytests[AU]
+
+#drop na
+AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
+
+AUdailytests.head()
+
+#calculate ratio of tested vs, population
+
+AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] / row['population'], axis=1)
+
+
 keep = ['notification_date', 'postcode']
 
 #Daily realtime corona cases data
