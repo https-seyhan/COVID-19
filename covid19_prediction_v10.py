@@ -18,23 +18,33 @@ dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=',')
 AUdailytests = dailytests[dailytests['location'] == 'Australia']
 
-keepAU = ['date', 'total_tests', 'population']
+keepAU = ['date', 'total_tests', 'new_cases', 'population']
 
-AUdailytests = AUdailytests[AU]
+AUdailytests = AUdailytests[keepAU]
 
 #drop na
-AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
+#AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
 
 AUdailytests.head()
 
+AUdailytests['new_cases'].astype(float)
+AUdailytests['DeltaCase'] = AUdailytests['new_cases'].diff()
+AUdailytests['DeltaCase'] = AUdailytests['DeltaCase'].fillna(0)
+AUdailytests.set_index("date")
+
+fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
+ax.set_title(f"Daily New Cases Change", fontweight='bold')
+ax.set_ylabel(' Change of new cases from previous day (day - [day-1])', fontweight='bold')
+ax.set_xlabel('Date', fontweight='bold')
+
+plt.plot(AUdailytests['date'], AUdailytests['DeltaCase'], color='tab:red')
+plt.show()
 #calculate ratio of tested vs, population
 
 AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] / row['population'], axis=1)
 
-
-keep = ['notification_date', 'postcode']
-
 #Daily realtime corona cases data
+keep = ['notification_date', 'postcode']
 dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe652944ec2/resource/21304414-1ff1-4243-a5d2-f52778048b29/download/covid-19-cases-by-notification-date-and-postcode-local-health-district-and-local-government-area.csv"
 
 coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=True, sep=',')
@@ -49,7 +59,7 @@ coronadata = coronadata[keep]
 
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
 
-#create cases
+#create new cases
 coronadata['cases'] = 1
 
 def plotNSW():
