@@ -18,7 +18,7 @@ dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=',')
 AUdailytests = dailytests[dailytests['location'] == 'Australia']
 
-keepAU = ['date', 'total_tests', 'new_cases', 'population']
+keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 
 AUdailytests = AUdailytests[keepAU]
 
@@ -42,6 +42,19 @@ plt.show()
 #calculate ratio of tested vs, population
 
 AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] / row['population'], axis=1)
+
+#calculate new tests to total tests ratio
+
+AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
+
+#Plot ratio
+AUdailytests.set_index("date")
+fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
+ax.set_title(f"New cases vs. Total cases ratio", fontweight='bold')
+ax.set_ylabel('Ratio', fontweight='bold')
+ax.set_xlabel('Date', fontweight='bold')
+plt.plot(AUdailytests['date'], AUdailytests['newcasestotalratio'], color='tab:red')
+plt.show()
 
 #Daily realtime corona cases data
 keep = ['notification_date', 'postcode']
