@@ -266,7 +266,7 @@ def plot_rt(result, ax):
                           ])
     color_mapped = lambda y: np.clip(y, .5, 1.5) - .5
 
-    index = result['ML'].index.get_level_values('notification_date')
+    index = result['ML'].index.get_level_values('date')
     values = result['ML'].values
 
     # Plot dots and line
