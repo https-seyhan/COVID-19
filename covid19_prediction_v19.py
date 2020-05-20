@@ -16,6 +16,8 @@ from scipy import stats
 
 #Global variables
 R_T_MAX = 6
+period = 14 # moving average period is 14 days
+GAMMA = 1 / 14 # 1 divided by the moving average
 keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 keep = ['date', 'postcode']
 #Daily realtime corona cases data of NSW
@@ -35,12 +37,9 @@ AUdailytests = AUdailytests[keepAU]
 
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 AUdailytests = AUdailytests[AUdailytests['date'] >= teststartdate ] # 2020-01-25 is the date that cases are started to reported by the Australian Gov
-print("AUdailytests size ", len(AUdailytests))
-
 
 AUdailytests['new_cases'].astype(float)
 
-#calculate ratio of tested vs, population
 
 #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic COVID-19 cases.
 #asymptomatic cases result in less accurate models due to its nature.
@@ -49,7 +48,7 @@ AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['t
 #Plot new cases total cases ratio overtime to show unobserved asymptomatic COVID-19 cases.
 
 fig, ax = plt.subplots(figsize=(figsize))
-ax.set_title(f"Daily New cases vs. Total cases ratio", fontweight='bold')
+ax.set_title(f"Daily New Covid-19 cases vs. Total cases ratio", fontweight='bold')
 ax.set_ylabel('Ratio', fontweight='bold')
 ax.set_xlabel('Date', fontweight='bold')
 plt.plot(AUdailytests['date'], AUdailytests['newcasestotalratio'], color='tab:red')
@@ -79,7 +78,7 @@ def plotNSWcases():
     flattened = pd.DataFrame(summaydata.to_records())
     flattened.set_index('date', inplace=True)
 
-    rolling = flattened.rolling(14,
+    rolling = flattened.rolling(period,
                                  win_type='gaussian',
                                  min_periods=1,
                                  center=True).mean(std=2).round()
@@ -122,7 +121,7 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     print(" Len Moving Averages", len(ma))
     print(" Len newtotalratio", len(newtotalratio))
 
-    GAMMA = 1 / 14 # 1 divided by the moving average
+
 
     # We create an array for every possible value of Rt
 
