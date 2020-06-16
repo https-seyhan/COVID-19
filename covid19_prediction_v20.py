@@ -195,7 +195,7 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 AUdailytests.set_index("date" , inplace=True)
 posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
 
-ax = posteriors.plot(title=' NSW - Daily Posterior for $R_t$',
+ax = posteriors.plot(title=' Improved Approach: NSW - Daily Posterior for $R_t$',
            legend=False,
            lw=1,
            c='k',
@@ -333,7 +333,7 @@ def plot_rt(result, ax):
 fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
 
 plot_rt(result, ax)
-ax.set_title(f'Real-time $R_t$ for NSW')
+ax.set_title(f'Improved Approach: Real-time $R_t$ for NSW')
 ax.xaxis.set_major_locator(mdates.WeekdayLocator())
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 plt.show()
@@ -346,4 +346,5 @@ most_likely = posteriors.idxmax().rename('ML')
 # Look into why you shift -1
 result = pd.concat([most_likely, hdis], axis=1)
 
-print(result.tail())
+print(result.head(10))
+print(result.tail(10))
