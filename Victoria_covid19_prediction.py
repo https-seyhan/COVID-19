@@ -50,8 +50,8 @@ def getVicdata():
     # ax.grid(which='major', axis='y', c='k', alpha=.3, zorder=-2)
     # ax.margins(0)
 
-    ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate')[-1] + pd.Timedelta(days=1))
-    #ax.set_xlim(pd.Timestamp(teststartdate), pd.Timestamp('2020-06-25'))
+    #ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate')[-1] + pd.Timedelta(days=1))
+    ax.set_xlim(pd.Timestamp(teststartdate), pd.Timestamp('2020-06-25'))
     fig.set_facecolor('w')
 
     # Plot graphs
