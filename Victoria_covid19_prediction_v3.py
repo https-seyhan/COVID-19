@@ -54,24 +54,25 @@ def plotVivCov19(flattened):
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax.xaxis.set_minor_locator(mdates.DayLocator())
 
-    ax.set_title(f"NSW COVID-19 Cases", fontweight='bold')
+    ax.set_title(f"VIC COVID-19 Cases", fontweight='bold')
     ax.set_ylabel('covid - 19 cases', fontweight='bold')
     ax.set_xlabel('Date', fontweight='bold')
     # ax.grid(which='major', axis='y', c='k', alpha=.3, zorder=-2)
     # ax.margins(0)
 
     print(flattened)
-    # ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate')[-1] + pd.Timedelta(days=1))
+
     ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
-    # ax.set_xlim(pd.Timestamp(teststartdate), pd.Timestamp('2020-06-26'))
+
     fig.set_facecolor('w')
 
     # Plot graphs
     ax.plot(flattened, color='blue', linestyle='dashdot', label='Detected Covid-19 cases')
 
     ax.legend(['Detected Cov-19 cases'])
-    # vicdata.plot(vicdata['newDate'], vicdata['VIC'])
-    # vicdata.plot()
+    ax.plot(rolling, color='red', zorder=1, alpha=alpha, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
+
+    legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
     plt.show()
 
 if __name__ == '__main__':
