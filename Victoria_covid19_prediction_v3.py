@@ -39,9 +39,11 @@ def getVicdata():
 
     vicdata = vicdata[['newDate', 'VIC']]
 
-    plotVivCov19(flattened)
+    movingAverage=plotVicCov19(flattened)
 
-def plotVivCov19(flattened):
+    print(" Len Moving Averages", len(movingAverage))
+
+def plotVicCov19(flattened):
 
     rolling = flattened.rolling(period,
                                 win_type='gaussian',
@@ -74,6 +76,9 @@ def plotVivCov19(flattened):
 
     legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
     plt.show()
+    return rolling
+
+
 
 if __name__ == '__main__':
     getVicdata()
