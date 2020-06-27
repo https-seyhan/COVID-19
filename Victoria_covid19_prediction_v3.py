@@ -28,33 +28,21 @@ def getVicdata():
     #print((vicdata['VIC'].describe()))
 
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
-    #vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: pd.to_datetime(x))
+
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
-    #vicdata['newDate2'] = vicdata['newDate']
-    #vicdata['newDate2'] = datetime.strptime(vicdata['newDate2'], '%d-%m-%y')
+
     print("Date Type ", type(vicdata['newDate2']))
 
-    #vicdata["newDate2"] = pd.to_datetime(vicdata["newDate2"])
-    #vicdata["Date3"] = pd.to_datetime(vicdata["Date"])
     print("Date Type 22222", type(vicdata['newDate2']))
-    #print("Date Type 333333", type(vicdata['Date3']))
 
-    #print('{}'.format(vicdata['newDate2']))
     print('{}'.format(vicdata))
 
     print("NOTTT Flattened : ", vicdata['newDate2'])
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
-    #summarydata["newDate2"] = pd.to_datetime(summarydata["newDate2"])
-    #print("Summary : ", summarydata)
-    flattened = pd.DataFrame(summarydata.to_records())
-    #flattened["newDate2"] = pd.to_datetime(flattened["newDate2"])
-    print("Flattened : ", flattened)
 
+    flattened = pd.DataFrame(summarydata.to_records())
 
     flattened.set_index('newDate2', inplace=True)
-
-    #print("Date Type 33333", type(flattened['newDate2']))
-    #flattened["newDate3"] = pd.to_datetime(flattened["newDate2"])
 
     vicdata = vicdata[['newDate', 'VIC']]
 
