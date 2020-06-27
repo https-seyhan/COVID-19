@@ -41,12 +41,17 @@ def getVicdata():
 
     vicdata = vicdata[['newDate', 'VIC']]
 
-    movingAverage=plotVicCov19(flattened)
+    rolling = flattened.rolling(period,
+                                win_type='gaussian',
+                                min_periods=1,
+                                center=True).mean(std=2).round()
 
-    print(" Len Moving Averages", len(movingAverage))
+    plotVicCov19(flattened, rolling)
+
+    print(" Len Moving Averages", len(rolling))
 
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
-    get_posteriors(movingAverage, 0.25)
+    get_posteriors(rolling, sigma=0.25)
 
 
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
@@ -123,12 +128,7 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
 
     return posteriors, log_likelihood
 
-def plotVicCov19(flattened):
-
-    rolling = flattened.rolling(period,
-                                win_type='gaussian',
-                                min_periods=1,
-                                center=True).mean(std=2).round()
+def plotVicCov19(flattened, rolling):
 
     fig, ax = plt.subplots(figsize=figsize)
     # Formatting
@@ -156,9 +156,6 @@ def plotVicCov19(flattened):
 
     legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
     plt.show()
-    return rolling
-
-
 
 if __name__ == '__main__':
     getVicdata()
