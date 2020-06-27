@@ -31,13 +31,6 @@ def getVicdata():
 
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
-    print("Date Type ", type(vicdata['newDate2']))
-
-    print("Date Type 22222", type(vicdata['newDate2']))
-
-    print('{}'.format(vicdata))
-
-    print("NOTTT Flattened : ", vicdata['newDate2'])
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
 
     flattened = pd.DataFrame(summarydata.to_records())
@@ -46,10 +39,14 @@ def getVicdata():
 
     vicdata = vicdata[['newDate', 'VIC']]
 
+    plotVivCov19(vicdata)
+
+def plotVivCov19(vicdata):
+
     rolling = flattened.rolling(period,
-                                 win_type='gaussian',
-                                 min_periods=1,
-                                 center=True).mean(std=2).round()
+                                win_type='gaussian',
+                                min_periods=1,
+                                center=True).mean(std=2).round()
 
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
@@ -63,17 +60,17 @@ def getVicdata():
     # ax.margins(0)
 
     print(flattened)
-    #ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate')[-1] + pd.Timedelta(days=1))
+    # ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate')[-1] + pd.Timedelta(days=1))
     ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
-    #ax.set_xlim(pd.Timestamp(teststartdate), pd.Timestamp('2020-06-26'))
+    # ax.set_xlim(pd.Timestamp(teststartdate), pd.Timestamp('2020-06-26'))
     fig.set_facecolor('w')
 
     # Plot graphs
-    ax.plot( flattened, color='blue', linestyle='dashdot',  label='Detected Covid-19 cases')
+    ax.plot(flattened, color='blue', linestyle='dashdot', label='Detected Covid-19 cases')
 
     ax.legend(['Detected Cov-19 cases'])
-    #vicdata.plot(vicdata['newDate'], vicdata['VIC'])
-    #vicdata.plot()
+    # vicdata.plot(vicdata['newDate'], vicdata['VIC'])
+    # vicdata.plot()
     plt.show()
 
 if __name__ == '__main__':
