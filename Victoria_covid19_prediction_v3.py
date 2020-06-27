@@ -16,7 +16,7 @@ os.chdir('/home/saul/corona')
 
 
 def getVicdata():
-    fig, ax = plt.subplots(figsize=figsize)
+
     print(f'Victoria')
     dailydata = pd.read_csv('cases_daily_state.csv', parse_dates=['Date'], sep=',')
 
@@ -39,15 +39,16 @@ def getVicdata():
 
     vicdata = vicdata[['newDate', 'VIC']]
 
-    plotVivCov19(vicdata)
+    plotVivCov19(flattened)
 
-def plotVivCov19(vicdata):
+def plotVivCov19(flattened):
 
     rolling = flattened.rolling(period,
                                 win_type='gaussian',
                                 min_periods=1,
                                 center=True).mean(std=2).round()
 
+    fig, ax = plt.subplots(figsize=figsize)
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
