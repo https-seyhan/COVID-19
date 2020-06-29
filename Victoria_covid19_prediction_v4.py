@@ -26,13 +26,13 @@ def getVicdata():
     vicdata = dailydata[['Date', 'VIC']] # keep two variables Date and VIC
 
     vicdata['Date'] = vicdata['Date'].apply(lambda x: x.replace("/", "-"))
-    
 
-    #print((vicdata['VIC'].describe()))
 
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
 
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
+
+    calculateTotalCases(vicdata)
 
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
 
@@ -47,14 +47,16 @@ def getVicdata():
                                 min_periods=1,
                                 center=True).mean(std=2).round()
 
-    plotVicCov19(flattened, rolling)
+    #plotVicCov19(flattened, rolling)
 
     print(" Len Moving Averages", len(rolling))
     print("Moving Averages ", rolling.head())
 
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
-    get_posteriors(rolling, sigma=0.25)
+    #get_posteriors(rolling, sigma=0.25)
 
+def calculateTotalCases(vicdata):
+    print(vicdata.columns)
 
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
 
