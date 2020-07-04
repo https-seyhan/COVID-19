@@ -3,6 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 from datetime import datetime
+from scipy import stats as sps
 import os
 import re
 
@@ -32,11 +33,6 @@ def getVicdata():
 
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
-    calculateTotalCases(vicdata)
-    print("Column Names ", vicdata.columns)
-    calculatenewcasestotalratio(vicdata)
-    print("New Column Names ", vicdata.columns)
-    print("New cases ratio describe ", vicdata['newcasestotalratio'].describe())
 
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
 
@@ -56,7 +52,13 @@ def getVicdata():
     print(" Len Moving Averages", len(rolling))
     print("Moving Averages ", rolling.head())
 
-    #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
+    calculateTotalCases(vicdata)
+    print("Column Names ", vicdata.columns)
+    calculatenewcasestotalratio(vicdata)
+    print("New Column Names ", vicdata.columns)
+    print("New cases ratio describe ", vicdata['newcasestotalratio'].describe())
+
+    posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
 
 def calculateTotalCases(vicdata):
@@ -73,10 +75,8 @@ def calculatenewcasestotalratio(vicdata):
     vicdata['newcasestotalratio']  = vicdata['VIC'] / vicdata['total_cases']
 
 
-posteriors, log_likelihood = get_posteriors(movingAverage, vicdata['newcasestotalratio'], sigma=.25)
-
 #Calculate Bayesian posteriors
-def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
+def get_posteriors(ma, newtotalratio, sigma=0.15):
 
     print(" Len Moving Averages", len(ma))
     print(" Len newtotalratio", len(newtotalratio))
