@@ -67,8 +67,8 @@ def getVicdata():
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
     plotPosteriors(posteriors)
-    print("Posteriors !!!!!!!! ", posteriors.values)
-    print("Posteriors Types ", posteriors.describe())
+    #print("Posteriors !!!!!!!! ", posteriors.values)
+    #print("Posteriors Types ", posteriors.describe())
 
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
 
@@ -83,7 +83,6 @@ def getVicdata():
     result = pd.concat([most_likely, hdis], axis=1)
 
     plot_rt(result)
-
 
 def plotCoeffs(posteriors, hdi, hdis):
     most_likely = posteriors.idxmax().rename('ML')
@@ -286,7 +285,10 @@ def plot_rt(result):
                lw=.5,
                c=cmap(color_mapped(values)),
                edgecolors='k', zorder=2)
-
+    ax.annotate('R0 greater than 1', (mdates.date2num(index[100]), values[100]),
+                xytext=(20, 20), textcoords='offset points',
+                arrowprops=dict(facecolor='black')
+                )
     # Aesthetically, extrapolate credible interval by 1 day either side
     lowfn = interp1d(date2num(index),
                      result['Low_' + str(coef)].values,
