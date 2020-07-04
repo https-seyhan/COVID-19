@@ -1,9 +1,19 @@
 import pandas as pd
 import numpy as np
+import csv
+from urllib.request import urlopen
 from matplotlib import pyplot as plt
+from matplotlib.dates import date2num, num2date
+import seaborn as sb
+import operator
+from collections import Counter
+from matplotlib.colors import ListedColormap
 from matplotlib import dates as mdates
-from datetime import datetime
+from matplotlib import ticker
 from scipy import stats as sps
+from scipy.interpolate import interp1d
+from scipy import stats
+from datetime import datetime
 import os
 import re
 
@@ -40,7 +50,7 @@ def getVicdata():
 
     flattened.set_index('newDate2', inplace=True)
 
-    vicdata = vicdata[['newDate', 'VIC']]
+    vicdata = vicdata[['newDate2', 'VIC']]
 
     rolling = flattened.rolling(period,
                                 win_type='gaussian',
@@ -66,6 +76,13 @@ def getVicdata():
     hdis = highest_density_interval(posteriors, p=alpha)
 
     plotCoeffs(posteriors, hdi, hdis)
+
+    most_likely = posteriors.idxmax().rename('ML')
+
+    # Look into why you shift -1
+    result = pd.concat([most_likely, hdis], axis=1)
+
+    plot_rt(result)
 
 
 def plotCoeffs(posteriors, hdi, hdis):
@@ -112,7 +129,7 @@ def highest_density_interval(posteriors, p, debug=False):
                             index=posteriors.columns)
 
     cumsum = np.cumsum(posteriors.values)
-    print("Posterior Values", posteriors.values)
+    #print("Posterior Values", posteriors.values)
 
     # N x N matrix of total probability mass for each low, high
     total_p = cumsum - cumsum[:, None]
@@ -140,15 +157,9 @@ def calculatenewcasestotalratio(vicdata):
     #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic COVID-19 cases.
     #asymptomatic cases result in less accurate models due to its nature.
     vicdata['newcasestotalratio']  = vicdata['VIC'] / vicdata['total_cases']
-    #print('Vic Data ', vicdata['VIC'])
-    #print('Total Cases ', vicdata['total_cases'])
 
 #Calculate Bayesian posteriors
 def get_posteriors(ma, newtotalratio, sigma=0.15):
-
-    #print(" Len Moving Averages", len(ma))
-    #print(" Len newtotalratio", len(newtotalratio))
-    #print("Sigma ", sigma)
 
 
     # We create an array for every possible value of Rt
@@ -231,8 +242,6 @@ def plotVicCov19(flattened, rolling):
     # ax.grid(which='major', axis='y', c='k', alpha=.3, zorder=-2)
     # ax.margins(0)
 
-    print(flattened)
-
     ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
 
     fig.set_facecolor('w')
@@ -244,6 +253,76 @@ def plotVicCov19(flattened, rolling):
     ax.plot(rolling, color='red', zorder=1, alpha=alpha, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
 
     legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
+    plt.show()
+
+def plot_rt(result):
+
+    fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
+    ax.set_title(f"VIC")
+
+    # Colors
+    ABOVE = [1, 0, 0]
+    MIDDLE = [1, 1, 1]
+    BELOW = [0, 0, 0]
+    cmap = ListedColormap(np.r_[
+                              np.linspace(BELOW, MIDDLE, 25),
+                              np.linspace(MIDDLE, ABOVE, 25)
+                          ])
+    color_mapped = lambda y: np.clip(y, .5, 1.5) - .5
+
+    index = result['ML'].index.get_level_values('newDate2')
+    values = result['ML'].values
+
+    # Plot dots and line
+    ax.plot(index, values, c='k', zorder=1, alpha=.25)
+    ax.scatter(index,
+               values,
+               s=40,
+               lw=.5,
+               c=cmap(color_mapped(values)),
+               edgecolors='k', zorder=2)
+
+    # Aesthetically, extrapolate credible interval by 1 day either side
+    lowfn = interp1d(date2num(index),
+                     result['Low_' + str(coef)].values,
+                     bounds_error=False,
+                     fill_value='extrapolate')
+
+    highfn = interp1d(date2num(index),
+                      result['High_' + str(coef)].values,
+                      bounds_error=False,
+                      fill_value='extrapolate')
+
+    extended = pd.date_range(start=pd.Timestamp(teststartdate),
+                             end=index[-1] + pd.Timedelta(days=1))
+
+    ax.fill_between(extended,
+                    lowfn(date2num(extended)),
+                    highfn(date2num(extended)),
+                    color='k',
+                    alpha=.1,
+                    lw=0,
+                    zorder=3)
+
+    ax.axhline(1.0, c='k', lw=1, label='$R_t=1.0$', alpha=.25);
+
+    # Formatting
+    ax.xaxis.set_major_locator(mdates.MonthLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
+    ax.xaxis.set_minor_locator(mdates.DayLocator())
+
+    ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
+    ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:.1f}"))
+    ax.yaxis.tick_right()
+    ax.spines['left'].set_visible(False)
+    ax.spines['bottom'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.margins(0)
+    ax.grid(which='major', axis='y', c='k', alpha=.1, zorder=-2)
+    ax.margins(0)
+    ax.set_ylim(0.0, 6.0)
+    ax.set_xlim(pd.Timestamp(teststartdate), result.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
+    fig.set_facecolor('w')
     plt.show()
 
 if __name__ == '__main__':
