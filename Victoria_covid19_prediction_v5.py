@@ -47,7 +47,7 @@ def getVicdata():
                                 min_periods=1,
                                 center=True).mean(std=2).round()
 
-    #plotVicCov19(flattened, rolling)
+    plotVicCov19(flattened, rolling)
 
     print(" Len Moving Averages", len(rolling))
     print("Moving Averages ", rolling.head())
@@ -60,6 +60,18 @@ def getVicdata():
 
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
+    plotPosteriors(posteriors)
+
+def plotPosteriors(posteriors):
+    ax = posteriors.plot(title=' Improved Approach: VIC - Daily Posterior for $R_t$',
+                         legend=False,
+                         lw=1,
+                         c='k',
+                         alpha=.3,
+                         xlim=(0.4, 6))
+
+    ax.set_xlabel('$R_t$');
+    plt.show()
 
 def calculateTotalCases(vicdata):
     print("Columns ", vicdata.columns)
