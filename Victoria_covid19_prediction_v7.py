@@ -97,7 +97,8 @@ def plotCoeffs(posteriors, hdi, hdis):
                                  label='Most Likely',
                                  title=f'$R_t$ by day',
                                  c='blue',
-                                 markersize=4)
+                                 markersize=4,
+                                 figsize=figsize)
 
     ax.fill_between(hdi.index,
                     hdi['Low_' + str(coef)],
@@ -111,12 +112,14 @@ def plotCoeffs(posteriors, hdi, hdis):
     plt.show()
 
 def plotPosteriors(posteriors):
+
     ax = posteriors.plot(title=' Improved Approach: VIC - Daily Posterior for $R_t$',
                          legend=False,
                          lw=1,
                          c='k',
                          alpha=.5,
-                         xlim=(0.4, 6))
+                         xlim=(0.4, 6),
+                         figsize=figsize)
 
     ax.set_xlabel('$R_t$');
     plt.show()
@@ -160,7 +163,6 @@ def calculatenewcasestotalratio(vicdata):
 
 #Calculate Bayesian posteriors
 def get_posteriors(ma, newtotalratio, sigma=0.15):
-
 
     # We create an array for every possible value of Rt
 
@@ -257,10 +259,13 @@ def plotVicCov19(flattened, rolling):
 
 def plot_rt(result):
 
-    fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
+    fig, ax = plt.subplots(figsize=figsize)
     ax.set_title(f"VIC")
+    ax.set_title(f'Improved Approach: Real-time $R_t$ for VIC')
+    ax.xaxis.set_major_locator(mdates.WeekdayLocator())
+    ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 
-    # Colors
+    # Colours
     ABOVE = [1, 0, 0]
     MIDDLE = [1, 1, 1]
     BELOW = [0, 0, 0]
