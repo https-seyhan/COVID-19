@@ -285,7 +285,7 @@ def plot_rt(result):
                lw=.5,
                c=cmap(color_mapped(values)),
                edgecolors='k', zorder=2)
-    ax.annotate('R0 greater than 1', (mdates.date2num(index[100]), values[100]),
+    ax.annotate('R0 greater than 1', (mdates.date2num(index[99]), values[99]),
                 xytext=(20, 20), textcoords='offset points',
                 arrowprops=dict(facecolor='black')
                 )
@@ -331,6 +331,15 @@ def plot_rt(result):
     ax.set_xlim(pd.Timestamp(teststartdate), result.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
     fig.set_facecolor('w')
     plt.show()
+
+    print("Dates ", index[99:106])
+    print("R0 values ", values[99:107])
+
+    #jumpinMay = pd.DataFrame(index= 'NewDate2', index[99:106], values[99:106])
+    jumpinMay = pd.DataFrame({'Date': index[99:106],
+                              'R0': values[99:106]})
+
+    print(jumpinMay)
 
 if __name__ == '__main__':
     getVicdata()
