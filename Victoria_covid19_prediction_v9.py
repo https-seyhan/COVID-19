@@ -345,10 +345,16 @@ def plot_rt(result):
 
 
 def plotDataFrame(jumpinMay):
-    fig, ax = plt.subplots(1, 1, figsize=figsize)
-    table(ax, np.round(jumpinMay, 2),
-          loc='upper left', colWidths=[0.1, 0.1, 0.1])
-    jumpinMay.plot(ax=ax, ylim=(0.1, 2), legend=None)
+    fig, ax = plt.subplots()
+
+    # hide axes
+    fig.patch.set_visible(False)
+    ax.axis('off')
+    ax.axis('tight')
+
+    table(ax, np.round(jumpinMay, 4),
+          loc='upper left', colWidths=[0.2, 0.2, 0.2])
+    jumpinMay.plot(ax=ax, ylim=(1, 2), legend=None)
     plt.show()
 
 
