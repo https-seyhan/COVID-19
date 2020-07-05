@@ -20,7 +20,7 @@ import re
 #Global variables
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
-teststartdate = '2020-01-25'
+teststartdate = '2020-03-01'
 period = 14 # moving average period is 14 days
 figsize = (1500 / 50, 400 / 50)
 alpha=.90
@@ -285,8 +285,8 @@ def plot_rt(result):
                lw=.5,
                c=cmap(color_mapped(values)),
                edgecolors='k', zorder=2)
-    ax.annotate('R0 greater than 1', (mdates.date2num(index[99]), values[99]),
-                xytext=(20, 20), textcoords='offset points',
+    ax.annotate('R0 jumps to greater than 1', (mdates.date2num(index[99]), values[99]),
+                xytext=(50, 50), textcoords='offset points',
                 arrowprops=dict(facecolor='black')
                 )
     # Aesthetically, extrapolate credible interval by 1 day either side
@@ -336,8 +336,8 @@ def plot_rt(result):
     print("R0 values ", values[99:107])
 
     #jumpinMay = pd.DataFrame(index= 'NewDate2', index[99:106], values[99:106])
-    jumpinMay = pd.DataFrame({'Date': index[99:106],
-                              'R0': values[99:106]})
+    jumpinMay = pd.DataFrame({'Date': index[98:106],
+                              'R0': values[98:106]})
 
     print(jumpinMay)
 
