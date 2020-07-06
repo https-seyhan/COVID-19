@@ -58,7 +58,7 @@ def getVicdata():
                                 min_periods=1,
                                 center=True).mean(std=2).round()
 
-    #plotVicCov19(flattened, rolling)
+    plotVicCov19(flattened, rolling)
 
     calculateTotalCases(vicdata)
     calculatenewcasestotalratio(vicdata)
@@ -287,7 +287,7 @@ def plot_rt(result):
                lw=.5,
                c=cmap(color_mapped(values)),
                edgecolors='k', zorder=2)
-    ax.annotate('R0 jumps above 1 level.', (mdates.date2num(index[99]), values[99]),
+    ax.annotate('R0 jumps above 1.', (mdates.date2num(index[99]), values[99]),
                 xytext=(50, 50), textcoords='offset points',
                 arrowprops=dict(facecolor='black')
                 )
