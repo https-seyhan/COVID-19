@@ -340,29 +340,34 @@ def plot_rt(result):
     #jumpinMay = pd.DataFrame(index= 'NewDate2', index[99:106], values[99:106])
     jumpinMay = pd.DataFrame({'Date': index[98:106],
                               'R0': values[98:106]})
+    last5days = pd.DataFrame({'Date': index[len(index) - 5:len(index)],
+                              'R0': values[len(index) - 5:len(index)]})
 
-    plotDataFrame(jumpinMay)
+
+    plotDataFrame(jumpinMay, 'jumpinMay')
     #ax.legend(jumpinMay.values)
     print(jumpinMay)
+    print(last5days)
+    plotDataFrame(last5days, 'R0_last5days')
 
 
-def plotDataFrame(jumpinMay):
+def plotDataFrame(period, imgname):
     fig, ax = plt.subplots()
 
     # hide axes
     fig.patch.set_visible(False)
     ax.axis('off')
     ax.axis('tight')
-    ax.set_title('R nought jump in May')
+    ax.set_title('Predicted R nought Values')
 
-    jumpinMay['R0'] = np.round(jumpinMay['R0'], 4)
+    period['R0'] = np.round(period['R0'], 4)
 
-    jumpinMay['Date'] = jumpinMay['Date'].dt.strftime('%d%b%Y')
+    period['Date'] = period['Date'].dt.strftime('%d%b%Y')
 
-    ax.table(cellText=jumpinMay.values, colLabels=jumpinMay.columns, loc='center')
+    ax.table(cellText=period.values, colLabels=period.columns, loc='center')
 
     fig.tight_layout()
-    plt.savefig('mayjump.png')
+    plt.savefig('' + imgname + ".png")
     #plt.show()
 
 if __name__ == '__main__':
