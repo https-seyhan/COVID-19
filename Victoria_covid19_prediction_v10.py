@@ -238,7 +238,7 @@ def plotVicCov19(flattened, rolling):
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax.xaxis.set_minor_locator(mdates.DayLocator())
 
-    ax.set_title(f"VIC COVID-19 Cases", fontweight='bold')
+    ax.set_title(f"Victoria's COVID-19 Cases", fontweight='bold')
     ax.set_ylabel('covid - 19 cases', fontweight='bold')
     ax.set_xlabel('Date', fontweight='bold')
     # ax.grid(which='major', axis='y', c='k', alpha=.3, zorder=-2)
@@ -255,13 +255,15 @@ def plotVicCov19(flattened, rolling):
     ax.plot(rolling, color='red', zorder=1, alpha=alpha, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
 
     legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
+
+    plt.savefig("COVID19_Victoria.png")
     plt.show()
 
 def plot_rt(result):
 
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.set_title(f"VIC")
-    ax.set_title(f'Improved Approach: Real-time $R_t$ for VIC')
+    ax.set_title(f'Improved Bayesian Approach: Real-time $R_t$ Prediction of Victoria')
     ax.xaxis.set_major_locator(mdates.WeekdayLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %d'))
 
@@ -287,7 +289,7 @@ def plot_rt(result):
                lw=.5,
                c=cmap(color_mapped(values)),
                edgecolors='k', zorder=2)
-    ax.annotate('R0 jumps above 1.', (mdates.date2num(index[99]), values[99]),
+    ax.annotate('R0 jumps above 1 in May.', (mdates.date2num(index[99]), values[99]),
                 xytext=(50, 50), textcoords='offset points',
                 arrowprops=dict(facecolor='black')
                 )
@@ -332,6 +334,7 @@ def plot_rt(result):
     ax.set_ylim(0.0, 6.0)
     ax.set_xlim(pd.Timestamp(teststartdate), result.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
     fig.set_facecolor('w')
+    plt.savefig("R0 COVID19_Victoria_cases.png")
     plt.show()
 
     print("Dates ", index[99:106])
@@ -358,7 +361,7 @@ def plotDataFrame(period, imgname):
     fig.patch.set_visible(False)
     ax.axis('off')
     ax.axis('tight')
-    ax.set_title('Predicted R nought Values')
+    #ax.set_title('Predicted R nought Values')
 
     period['R0'] = np.round(period['R0'], 4)
 
