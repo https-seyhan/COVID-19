@@ -19,6 +19,9 @@ from datetime import datetime
 import os
 import re
 
+#Since, this is an innovative Bayesian approah, all parts of thius model and its related software codes are licensed under the MIT license/icensed under the MIT license.
+#Feel free to use the model. But, please recognise the author of the model in your use of my model as outlined in the MIT license and as respect to the intellectual property.
+
 #Global variables
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
