@@ -14,6 +14,8 @@ from scipy import stats as sps
 from scipy.interpolate import interp1d
 from scipy import stats
 
+#An innovative approach to COVID-19 spread prediction
+
 #Global variables
 R_T_MAX = 6
 period = 14 # moving average period is 14 days
