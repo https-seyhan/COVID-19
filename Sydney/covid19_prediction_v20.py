@@ -15,6 +15,7 @@ from scipy.interpolate import interp1d
 from scipy import stats
 
 #An innovative approach to COVID-19 spread prediction
+#This model combines Bayesian prediction with Poisson distribution as the distribution function and resolves 'Omitted Variable Bias'
 
 #Global variables
 R_T_MAX = 6
