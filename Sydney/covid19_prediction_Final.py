@@ -29,7 +29,7 @@ dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe65
 
 dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 
-teststartdate = '2020-01-25'
+teststartdate = '2020-06-25'
 figsize = (1500 / 50, 400 / 50)
 alpha=.90
 coef = 90
