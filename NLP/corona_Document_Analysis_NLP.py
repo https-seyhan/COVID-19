@@ -276,6 +276,7 @@ if __name__ == '__main__':
 	#print('Abstract :', text_list, '\n')
 	#print('Abstract :', allWords, '\n')
 
+	# create cbow vectors
 	#bow_vector = CountVectorizer(tokenizer=allWords, ngram_range=(1, 1))
 	#print("Bow Vector :", bow_vector)
 	#word_freq = Counter(allWords)
