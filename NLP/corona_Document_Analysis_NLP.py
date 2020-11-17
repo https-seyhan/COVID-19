@@ -18,6 +18,7 @@ import time
 
 nlp = spacy.load("en_core_web_sm")
 
+# Search items
 pattern1 = [{"LOWER": "medical"}]
 pattern2 = [{"LOWER": "care"}]
 pattern3 = [{"LOWER": "diagnosis"}]
