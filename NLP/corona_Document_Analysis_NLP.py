@@ -43,8 +43,7 @@ pattern20 = [{"LOWER": "N95"}]
 pattern21 = [{"LOWER": "telemedicine"}]
 pattern22 = [{"LOWER": "outcomes"}]
 
-
-
+# NLP lists and dictionary
 word_list = []
 word_dict = {}
 allWords = []
