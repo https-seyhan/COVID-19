@@ -6,7 +6,7 @@ from spacy.tokens import Doc
 
 import numpy as np
 from numpy import array
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer # Vectorizer for cbow
 from collections import Counter
 from matplotlib import pyplot as plt
 import seaborn as sb
