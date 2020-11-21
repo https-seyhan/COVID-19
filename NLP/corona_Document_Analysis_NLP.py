@@ -1,4 +1,4 @@
-# Knowledge Extraction 
+# Knowledge Extraction of COVID-19 articles 
 import pandas as pd
 import os
 import spacy
