@@ -44,7 +44,6 @@ AUdailytests = AUdailytests[AUdailytests['date'] >= teststartdate ] # 2020-01-25
 
 AUdailytests['new_cases'].astype(float)
 
-
 #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic COVID-19 cases.
 #asymptomatic cases result in less accurate models due to its nature.
 AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
