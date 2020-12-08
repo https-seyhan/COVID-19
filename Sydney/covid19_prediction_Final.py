@@ -20,7 +20,7 @@ from scipy import stats
 #Global variables
 R_T_MAX = 6
 period = 14 # moving average period is 14 days
-GAMMA = 1 / 14 # 1 divided by the moving average
+GAMMA = 1 / 14 # 1 divided by the moving average (14 days)
 keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 keep = ['date', 'postcode']
 #state cases = "blob:https://infogram.com/2b5ef1d5-3aa6-4ebf-aff1-c6e38acd85b5"
