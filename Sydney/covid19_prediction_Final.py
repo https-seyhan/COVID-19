@@ -14,7 +14,7 @@ from scipy import stats as sps
 from scipy.interpolate import interp1d
 from scipy import stats
 
-#An innovative approach to COVID-19 spread prediction
+#An innovative approach to COVID-19 spread prediction using advanced Bayesian modeling
 #This model combines Bayesian prediction with Poisson function as the distribution (Likelihood) function and resolves 'Omitted Variable Bias'
 
 #Global variables
