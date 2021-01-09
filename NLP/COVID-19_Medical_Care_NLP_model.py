@@ -12,7 +12,7 @@ from matplotlib import pyplot as plt
 import seaborn as sb
 import re
 
-# Objective isto get medical care mentioned in the documents by using intelligent SpaCy rule-based pattern matching.
+# Objective is to get medical care mentioned in the documents by using intelligent SpaCy rule-based pattern matching.
 # Sentences that contain patterns given below are retreived.
 # The assumption is that medical cares are in the  sentences that contain the pattterns
 # The output is csv file containing sha, keyword ans the sentences that contain the keyword.
