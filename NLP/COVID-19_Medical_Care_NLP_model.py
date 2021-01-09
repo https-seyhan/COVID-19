@@ -53,7 +53,7 @@ allWords = []
 medical_care = [['', '', '']]
 
 # Add customised stop word into the NLP model
-# custimize_stop_words = [
+# customize_stop_words = [
 #    'From','from', 'To', 'to', 'Hospital', 'hospital', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
 #	'[', ']', ';', "\xa0", '/', 'virus', 'studies', '1', 'BACKGROUND', 'population', 'previously', 'countries', 'dogs', 'data',
 #	'infection', '%', 'viral'
