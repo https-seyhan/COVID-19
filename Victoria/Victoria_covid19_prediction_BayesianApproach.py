@@ -355,7 +355,6 @@ def plot_rt(result):
     print(last5days)
     plotDataFrame(last5days, 'R0_last5days')
 
-
 def plotDataFrame(period, imgname):
     fig, ax = plt.subplots()
 
