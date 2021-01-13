@@ -33,7 +33,6 @@ coef = 90
 
 os.chdir('/home/saul/corona')
 
-
 def getVicdata():
 
     print(f'Victoria')
