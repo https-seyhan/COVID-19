@@ -78,9 +78,6 @@ def readfile():
 	textcount = 0
 	print("reading the file")
 	coronafile = pd.read_csv(filename, sep=',')
-	#print(f'number of rows {len(coronafile)}')
-	#print(f'columns {coronafile.columns}')
-	#print(coronafile.head(5))
 
 	#check dup rows
 	duprows = coronafile[coronafile.duplicated(keep = False)]
