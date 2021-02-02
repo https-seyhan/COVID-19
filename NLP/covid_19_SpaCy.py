@@ -3,7 +3,6 @@ import os
 import spacy
 from spacy.matcher import Matcher
 from spacy.tokens import Doc
-
 import numpy as np
 from numpy import array
 from sklearn.feature_extraction.text import CountVectorizer
