@@ -52,8 +52,6 @@ filename = 'all_sources_metadata_2020-03-13.csv'
 allWords = []
 medical_care = [['', '', '']]
 
-
-
 #customize_stop_words = [
 #    'From','from', 'To', 'to', 'Hospital', 'hospital', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
 #	'[', ']', ';', "\xa0", '/', 'virus', 'studies', '1', 'BACKGROUND', 'population', 'previously', 'countries', 'dogs', 'data',
