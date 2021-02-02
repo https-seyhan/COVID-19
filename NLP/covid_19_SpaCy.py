@@ -46,8 +46,6 @@ pattern20 = [{"LOWER": "N95"}]
 pattern21 = [{"LOWER": "telemedicine"}]
 pattern22 = [{"LOWER": "outcomes"}]
 
-
-
 allWords = []
 
 medical_care = [['', '', '']]
