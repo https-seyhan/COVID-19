@@ -46,8 +46,14 @@ pattern20 = [{"LOWER": "N95"}]
 pattern21 = [{"LOWER": "telemedicine"}]
 pattern22 = [{"LOWER": "outcomes"}]
 
+os.chdir("/home/saul/corona/CORD-19-research-challenge/2020-03-13") # change this to your local directory
+
+filename = 'all_sources_metadata_2020-03-13.csv'
+
 allWords = []
 medical_care = [['', '', '']]
+
+
 
 #customize_stop_words = [
 #    'From','from', 'To', 'to', 'Hospital', 'hospital', '-', ')', '(', ',', ':', 'of', 'for', 'the', 'The', 'is',
@@ -61,9 +67,7 @@ customize_stop_words = [
 for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
 
-os.chdir("/home/saul/corona/CORD-19-research-challenge/2020-03-13") # change this to your local directory
 
-filename = 'all_sources_metadata_2020-03-13.csv'
 
 def readfile():
 
