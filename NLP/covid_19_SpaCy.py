@@ -47,7 +47,6 @@ pattern21 = [{"LOWER": "telemedicine"}]
 pattern22 = [{"LOWER": "outcomes"}]
 
 os.chdir("/home/saul/corona/CORD-19-research-challenge/2020-03-13") # change this to your local directory
-
 filename = 'all_sources_metadata_2020-03-13.csv'
 
 allWords = []
