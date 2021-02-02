@@ -47,7 +47,6 @@ pattern21 = [{"LOWER": "telemedicine"}]
 pattern22 = [{"LOWER": "outcomes"}]
 
 allWords = []
-
 medical_care = [['', '', '']]
 
 #customize_stop_words = [
