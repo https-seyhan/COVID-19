@@ -65,7 +65,6 @@ for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
 
 def readfile():
-
 	textcount = 0
 	print("reading the file")
 	coronafile = pd.read_csv(filename, sep=',')
