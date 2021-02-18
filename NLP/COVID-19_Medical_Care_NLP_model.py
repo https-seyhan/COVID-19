@@ -66,7 +66,6 @@ for w in customize_stop_words:
 os.chdir("/home/saul/corona/CORD-19-research-challenge/2020-03-13")  # change this to your local directory
 filename = 'all_sources_metadata_2020-03-13.csv'
 
-
 def readfile():
     textcount = 0
     print("reading the file")
