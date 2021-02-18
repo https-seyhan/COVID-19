@@ -80,7 +80,6 @@ def readfile():
     nodupcorona = coronafile.drop_duplicates(subset=None, keep='first', inplace=False)
     print(len(nodupcorona))
     drop_list = ["WHO #Covidence"]
-
     nodupcorona = nodupcorona.drop(drop_list, axis=1)
     analyseAbstract(nodupcorona.sha, nodupcorona.abstract, textcount)
     print("Text Count", textcount)
