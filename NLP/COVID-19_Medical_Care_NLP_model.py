@@ -105,7 +105,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
     # convert list to nlp doc
     cleandoc = Doc(nlp.vocab, words=cleantext)
-
     matcher = Matcher(nlp.vocab)
 
     matcher.add("medicalcare", None, pattern1, pattern2, pattern3, pattern4, pattern5, pattern6,
