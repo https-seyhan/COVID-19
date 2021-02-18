@@ -84,7 +84,6 @@ def readfile():
     analyseAbstract(nodupcorona.sha, nodupcorona.abstract, textcount)
     print("Text Count", textcount)
 
-
 def analyseAbstract(sha, abstract, textcount):
     abstractList = [['', '']]
     abstract.dropna()
