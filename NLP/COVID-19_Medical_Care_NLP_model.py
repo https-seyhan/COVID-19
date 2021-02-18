@@ -79,7 +79,6 @@ def readfile():
     # remove duplicated rows
     nodupcorona = coronafile.drop_duplicates(subset=None, keep='first', inplace=False)
     print(len(nodupcorona))
-
     drop_list = ["WHO #Covidence"]
 
     nodupcorona = nodupcorona.drop(drop_list, axis=1)
