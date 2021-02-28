@@ -21,7 +21,7 @@ os.chdir('/home/saul/corona')
 #Since, this is an innovative Bayesian approach, all parts of this model and its related software codes are licensed under the MIT license.
 #Feel free to use the model. But, please recognise the author of the model in your use of my model as outlined in the MIT license and as respect to the intellectual property.
 
-#Global variables
+#Global Hyper-parameters
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
 teststartdate = '2020-03-01'
