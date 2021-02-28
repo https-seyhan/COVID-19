@@ -31,7 +31,6 @@ alpha=.90
 coef = 90
 
 
-
 def getVicdata():
 
     print(f'Victoria')
