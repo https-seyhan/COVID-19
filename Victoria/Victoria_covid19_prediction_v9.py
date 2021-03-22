@@ -35,11 +35,9 @@ def getVicdata():
     vicdata = dailydata[['Date', 'VIC']] # keep two variables Date and VIC
     vicdata['Date'] = vicdata['Date'].apply(lambda x: x.replace("/", "-"))
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
-
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
-
     flattened = pd.DataFrame(summarydata.to_records())
 
     flattened.set_index('newDate2', inplace=True)
