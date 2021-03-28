@@ -45,7 +45,6 @@ AUdailytests['new_cases'].astype(float)
 AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
 
 #Plot new cases total cases ratio overtime to show unobserved asymptomatic COVID-19 cases.
-
 fig, ax = plt.subplots(figsize=(figsize))
 ax.set_title(f"Daily New Covid-19 cases vs. Total cases ratio - Australia", fontweight='bold')
 ax.set_ylabel('Ratio', fontweight='bold')
