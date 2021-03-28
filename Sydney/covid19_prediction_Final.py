@@ -168,7 +168,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
     return posteriors, log_likelihood
 
-
 # Note that we're fixing sigma to a value just for the example
 AUdailytests.set_index("date" , inplace=True)
 posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
