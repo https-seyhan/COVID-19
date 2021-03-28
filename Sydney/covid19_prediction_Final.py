@@ -26,7 +26,6 @@ keep = ['date', 'postcode'] # keep date and postcode
 #state cases = "blob:https://infogram.com/2b5ef1d5-3aa6-4ebf-aff1-c6e38acd85b5"
 #Daily realtime corona cases data of NSW
 dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe652944ec2/resource/21304414-1ff1-4243-a5d2-f52778048b29/download/covid-19-cases-by-notification-date-and-postcode-local-health-district-and-local-government-area.csv"
-
 dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 
 teststartdate = '2020-06-25'
