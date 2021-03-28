@@ -20,7 +20,6 @@ AUdailytests = dailytests[dailytests['location'] == 'Australia']
 keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 
 AUdailytests = AUdailytests[keepAU]
-
 #drop na
 #AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
 
