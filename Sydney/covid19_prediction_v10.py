@@ -65,7 +65,6 @@ coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=
 #Clean data
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
-
 coronadata = coronadata[keep]
 
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
