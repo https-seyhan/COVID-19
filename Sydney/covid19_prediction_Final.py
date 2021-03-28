@@ -118,7 +118,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
     #previous model
     #lam = ma[:-1].values * sumtwovecs
-
     #improved model
     lam = ma[:-1].values * sumtwovecs + newtotalratio[:, None]
 
