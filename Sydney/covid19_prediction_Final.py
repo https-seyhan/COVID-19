@@ -104,7 +104,6 @@ def plotNSWcases():
     # Put a nicer background color on the legend.
     legend.get_frame()
     plt.show()
-
     return rolling
 
 movingAverage = plotNSWcases()
