@@ -114,7 +114,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     ma = ma.cases # get new cases to be used in the lambda calculation
 
 
-
     # (1) Calculate Lambda
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
 
