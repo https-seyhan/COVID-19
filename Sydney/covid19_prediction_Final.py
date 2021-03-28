@@ -107,7 +107,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     print(" Moving Averages", ma)
     print(" Len Moving Averages", len(ma))
     print(" Len newtotalratio", len(newtotalratio))
-
     # We create an array for every possible value of Rt
     r_t_range = np.linspace(0, R_T_MAX, len(newtotalratio))
     #r_t_range = np.linspace(0, R_T_MAX, R_T_MAX * 10 + 5)
