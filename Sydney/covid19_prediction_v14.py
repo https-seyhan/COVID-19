@@ -60,7 +60,6 @@ coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=
 coronadata = coronadata.rename(columns={"notification_date": "date"})
 #print("Coronadata Columns ", coronadata.columns)
 #keep notification_date and postcode
-
 #Clean data
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
