@@ -65,7 +65,6 @@ coronadata = coronadata.rename(columns={"notification_date": "date"})
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
 coronadata = coronadata[keep]
-
 coronadata['date'] = pd.to_datetime(coronadata['date'])
 
 #create new cases
