@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
 import csv
+import seaborn as sb
+import operator
 from urllib.request import urlopen
 from matplotlib import pyplot as plt
 from matplotlib.dates import date2num, num2date
-import seaborn as sb
-import operator
+
 from collections import Counter
 from matplotlib.colors import ListedColormap
 from matplotlib import dates as mdates
