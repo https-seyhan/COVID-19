@@ -45,7 +45,6 @@ AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] /
 AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
 
 #Plot ratio
-
 fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
 ax.set_title(f"New cases vs. Total cases ratio", fontweight='bold')
 ax.set_ylabel('Ratio', fontweight='bold')
