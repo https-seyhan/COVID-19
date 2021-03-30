@@ -31,7 +31,6 @@ AUdailytests['new_cases'].astype(float)
 AUdailytests['DeltaCase'] = AUdailytests['new_cases'].diff()
 AUdailytests['DeltaCase'] = AUdailytests['DeltaCase'].fillna(0)
 
-
 fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
 ax.set_title(f"Daily New Cases Change", fontweight='bold')
 ax.set_ylabel(' Change of new cases from previous day (day - [day-1])', fontweight='bold')
