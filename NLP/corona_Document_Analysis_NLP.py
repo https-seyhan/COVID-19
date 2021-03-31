@@ -213,8 +213,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		medical_care.append([sha, span.text, sentence])
 
 		#print(start, end, span.text, span.label)
-		#print(doc)
-		#print(cleandoc)
+
 		#text_list.append([sha, cleandoc])
 		#word_dict[span.text] = {}  # create dictionary for keyword
 		#word_dict[span.text][cleandoc[start - 1]] = -1
