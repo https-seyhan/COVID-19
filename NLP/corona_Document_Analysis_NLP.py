@@ -7,14 +7,15 @@ import pandas as pd
 import os
 import spacy
 import numpy as np
+import seaborn as sb
+import re
 from spacy.matcher import Matcher
 from spacy.tokens import Doc
 from numpy import array
 from sklearn.feature_extraction.text import CountVectorizer # Vectorizer for cbow
 from collections import Counter
 from matplotlib import pyplot as plt
-import seaborn as sb
-import re
+
 
 #from timer import  Timer
 import time
