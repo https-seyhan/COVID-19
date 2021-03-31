@@ -216,7 +216,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 		medical_care.append([sha, span.text, sentence])
 
-
 		#print(start, end, span.text, span.label)
 		#print(doc)
 		#print(cleandoc)
