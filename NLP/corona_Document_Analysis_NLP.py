@@ -178,7 +178,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 			leftwords.append(cleandoc[start - moveleft])
 			moveleft= moveleft +1
 			#print("movement :", moveleftprint("Sum :", end + moveright))
-
 			#print("Sum Left :", start + moveleft)
 			if len(cleandoc) ==  start + moveleft:
 				break
