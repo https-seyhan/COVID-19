@@ -233,7 +233,6 @@ def bows(sha, abstract, count, textcount):
 	#print('Abstract :', allWords, '\n')
 	#print(array(allWords).shape)
 
-
 if __name__ == '__main__':
 	print("Process Started!!!")
 	start = time.time()
