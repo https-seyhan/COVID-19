@@ -222,9 +222,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		#word_dict[span.text] = {}  # create dictionary for keyword
 		#word_dict[span.text][cleandoc[start - 1]] = -1
 		textcount = +1
-	#print(textcount)
-	#print(word_list)
-	#print(word_dict)
+
 	#print([(t.text, t.dep_, t.head.text) for t in doc if t.dep_ != '-' and not t.is_stop])
 	#print("Document at " , count, cleantext)
 
