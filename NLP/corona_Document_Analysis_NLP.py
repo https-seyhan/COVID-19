@@ -243,21 +243,7 @@ if __name__ == '__main__':
 	readfile()
 	print(word_dict)
 	df = pd.DataFrame(text_list, columns=['sha', 'abstract'])
-	#print('Abstract :', text_list, '\n')
-	#print('Abstract :', allWords, '\n')
 
-	# create cbow vectors
-	#bow_vector = CountVectorizer(tokenizer=allWords, ngram_range=(1, 1))
-	#print("Bow Vector :", bow_vector)
-	#word_freq = Counter(allWords)
-	#most_common = word_freq.most_common(1000000)
-	#print("Bag of Word :", most_common)
-
-	#bow = pd.DataFrame(most_common)
-	#show top 1000 words
-	#print(bow.head(1000))
-	#sb.distplot(bow[1])
-	#plt.show()
 	print("word freq is being written into csv")
 	#bow.to_csv('wordfreq.csv', sep=',', index=False)
 	df = pd.DataFrame(medical_care, columns=['sha', 'keyword', 'medical_care'])
