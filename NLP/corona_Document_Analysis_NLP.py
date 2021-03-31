@@ -113,7 +113,7 @@ def readfile():
 	print ("Text Count", textcount)
 	#check data
 	#sampledata = nodupcorona[nodupcorona.sha == '0a00a6df208e068e7aa369fb94641434ea0e6070']
-	#print(sampledata.abstract)
+
 
 def analyseAbstract(sha, abstract, textcount):
 	abstractList = [['', '']]
