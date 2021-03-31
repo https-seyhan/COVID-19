@@ -67,8 +67,8 @@ coronadata['cases'] = 1
 
 def plotNSWcases():
     fig, ax = plt.subplots(figsize=figsize)
-    summaydata = pd.pivot_table(data=coronadata, values=['cases'], index=['date'], aggfunc=np.sum)
-    flattened = pd.DataFrame(summaydata.to_records())
+    summarydata = pd.pivot_table(data=coronadata, values=['cases'], index=['date'], aggfunc=np.sum)
+    flattened = pd.DataFrame(summarydata.to_records())
     flattened.set_index('date', inplace=True)
 
     rolling = flattened.rolling(period,
