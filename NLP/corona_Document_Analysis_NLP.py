@@ -227,7 +227,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	#print("Document at " , count, cleantext)
 
 def bows(sha, abstract, count, textcount):
-
 	#print("Bag of Words Called")
 
 	#cleanabstract = [t.text for t in abstract if not t.is_stop and t.ent_type_ != 'GPE']  # remove stop words. Exclude Geographic location
