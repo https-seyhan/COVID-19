@@ -189,9 +189,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 			if len(cleandoc) ==  start + moveleft:
 				break
 		leftwords.reverse()
-		#print("Left Words :", leftwords)
-		#print("Moveright ", moveright)
-		#print(" Doc Lenght ", len(cleandoc))
+
 
 		while ((len(cleandoc) >  end + moveright) and (str(cleandoc[end + moveright]) != ".") ):
 
