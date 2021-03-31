@@ -16,7 +16,7 @@ from collections import Counter
 from matplotlib import pyplot as plt
 #from timer import  Timer
 import time
-#Use bag of to get gather words that are useful for medical care
+#Use bag of words to get gather words that are useful for medical care
 
 nlp = spacy.load("en_core_web_sm")
 
