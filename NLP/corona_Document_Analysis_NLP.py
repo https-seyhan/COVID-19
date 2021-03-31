@@ -114,7 +114,6 @@ def readfile():
 	#check data
 	#sampledata = nodupcorona[nodupcorona.sha == '0a00a6df208e068e7aa369fb94641434ea0e6070']
 
-
 def analyseAbstract(sha, abstract, textcount):
 	abstractList = [['', '']]
 	abstract.dropna()
