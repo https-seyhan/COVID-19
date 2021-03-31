@@ -159,7 +159,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	matches = matcher(cleandoc)
 
 	for match_id, start, end in matches:
-
 		moveleft = 0
 		moveright = 0
 
