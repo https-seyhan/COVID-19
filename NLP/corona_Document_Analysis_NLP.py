@@ -128,8 +128,6 @@ def analyseAbstract(sha, abstract, textcount):
 	nlpWork(cleanabstracts, textcount)
 
 def nlpWork(abstract, textcount):
-
-
 	wordcount = 0
 	for words in abstract:
 		wordcount +=1
