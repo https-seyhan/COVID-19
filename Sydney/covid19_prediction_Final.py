@@ -165,7 +165,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
         # Add to the running sum of log likelihoods
         log_likelihood += np.log(denominator)
-
     return posteriors, log_likelihood
 
 # Note that we're fixing sigma to a value just for the example
