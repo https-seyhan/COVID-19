@@ -15,7 +15,6 @@ from numpy import array
 from sklearn.feature_extraction.text import CountVectorizer # Vectorizer for cbow
 from collections import Counter
 from matplotlib import pyplot as plt
-
 #from timer import  Timer
 import time
 #Use bag of to get gather words that are useful for medical care
