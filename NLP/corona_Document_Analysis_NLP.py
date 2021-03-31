@@ -9,7 +9,6 @@ import spacy
 import numpy as np
 from spacy.matcher import Matcher
 from spacy.tokens import Doc
-
 from numpy import array
 from sklearn.feature_extraction.text import CountVectorizer # Vectorizer for cbow
 from collections import Counter
