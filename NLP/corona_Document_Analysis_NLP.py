@@ -153,7 +153,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 	# convert list to nlp doc
 	cleandoc = Doc(nlp.vocab, words=cleantext)
-
 	matcher = Matcher(nlp.vocab)
 
 	#print("Search for ", pattern22)
