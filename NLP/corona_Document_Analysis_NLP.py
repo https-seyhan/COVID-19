@@ -226,7 +226,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	#print([(t.text, t.dep_, t.head.text) for t in doc if t.dep_ != '-' and not t.is_stop])
 	#print("Document at " , count, cleantext)
 
-
 def bows(sha, abstract, count, textcount):
 
 	#print("Bag of Words Called")
