@@ -195,7 +195,6 @@ def highest_density_interval(pmf, p, debug=False):
     # Return all indices with total_p > p
     lows, highs = (total_p > p).nonzero()
 
-
     # Find the smallest range (highest density)
     best = (highs - lows).argmin()
 
