@@ -180,7 +180,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		#print(" Doc Lenght ", len(cleandoc))
 		#print(cleandoc[start-1])
 		while ((len(cleandoc) >  start + moveleft) and (str(cleandoc[start - moveleft]) != ".") ):
-
 			#print("Prev Word :", cleandoc[start - moveleft])
 			leftwords.append(cleandoc[start - moveleft])
 			moveleft= moveleft +1
