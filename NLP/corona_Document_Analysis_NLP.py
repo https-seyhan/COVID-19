@@ -17,7 +17,6 @@ from matplotlib import pyplot as plt
 #from timer import  Timer
 import time
 #Use bag of words to get gather words that are useful for medical care
-
 nlp = spacy.load("en_core_web_sm")
 
 # Search items
