@@ -117,7 +117,6 @@ def readfile():
 	#print(sampledata.abstract)
 
 def analyseAbstract(sha, abstract, textcount):
-
 	abstractList = [['', '']]
 	abstract.dropna()
 	#print('Abstract :', abstract)
