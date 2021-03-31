@@ -145,7 +145,6 @@ def nlpWork(abstract, textcount):
 	#for ind in len(abstract):
 		#print(abstract[i])
 
-
 def coronaAnalysis(sha, abstract, count, textcount):
 	#doc = nlp(text)
 	textcount = 0
