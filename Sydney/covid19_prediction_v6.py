@@ -54,7 +54,6 @@ print(dfcases.describe())
 vals = np.array(list(postcodecases.values()))
 
 #plt.show()
-
 #sort postcodes by cases in ascending order
 sorted_cases = dict(sorted(postcodecases.items(), key=operator.itemgetter(1),reverse=True))
 #print('Dictionary in descending order by value : ',sorted_cases)
