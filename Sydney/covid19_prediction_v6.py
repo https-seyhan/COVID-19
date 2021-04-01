@@ -5,7 +5,6 @@ import seaborn as sb
 import operator
 from urllib.request import urlopen
 from matplotlib import pyplot as plt
-
 from collections import Counter
 from matplotlib.colors import ListedColormap
 from matplotlib import dates as mdates
