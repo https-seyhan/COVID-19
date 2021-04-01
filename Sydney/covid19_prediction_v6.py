@@ -249,7 +249,6 @@ most_likely = posteriors.idxmax().rename('ML')
 
 # Look into why you shift -1
 result = pd.concat([most_likely, hdis], axis=1)
-
 print(result.tail())
 
 most_likely_values = posteriors.idxmax(axis=0)
