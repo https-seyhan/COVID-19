@@ -52,8 +52,7 @@ dfcases = pd.Series(list(postcodecases.values()))
 print(dfcases.describe())
 
 vals = np.array(list(postcodecases.values()))
-#sb.boxplot(data= vals)
-#sb.distplot(vals)
+
 #plt.show()
 
 #get top ten highest postcodes
