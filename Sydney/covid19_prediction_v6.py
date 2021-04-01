@@ -23,7 +23,6 @@ print("row count before ", len(coronadata))
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
 
-print("row count after ", len(coronadata))
 coronadata = coronadata[keep]
 
 #Get unique postcodes
