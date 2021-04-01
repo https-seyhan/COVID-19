@@ -19,7 +19,6 @@ print(type(coronadata))
 print(type(coronadata.postcode))
 #keep notification_date and postcode
 
-
 print("row count before ", len(coronadata))
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
