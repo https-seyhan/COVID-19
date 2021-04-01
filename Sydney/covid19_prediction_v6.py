@@ -65,7 +65,6 @@ for postcode, case in Counter(sorted_cases).most_common(10):
     top10postcodes.append((postcode))
 
 def plotgraphs(postcode):
-
     statedat = coronadata[coronadata['postcode'] == postcode]
     summaydata = pd.pivot_table(data=statedat, values=['cases'], index=['notification_date'], aggfunc=np.sum)
     flattened = pd.DataFrame(summaydata.to_records())
