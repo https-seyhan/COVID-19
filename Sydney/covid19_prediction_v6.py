@@ -339,7 +339,6 @@ def plot_rt(result, ax):
     ax.set_xlim(pd.Timestamp('2020-03-01'), result.index.get_level_values('notification_date')[-1] + pd.Timedelta(days=1))
     fig.set_facecolor('w')
 
-
 fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
 
 plot_rt(result, ax)
