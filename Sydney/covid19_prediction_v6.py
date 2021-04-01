@@ -34,7 +34,6 @@ postcodecount = coronadata['postcode'].unique()
 #print(coronadata.dtypes)
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
 
-print("Post code Type ", type(coronadata['postcode']))
 coronadata['cases'] = 1
 
 #There are 438 postcodes
