@@ -24,7 +24,6 @@ coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
 
 coronadata = coronadata[keep]
-
 #Get unique postcodes
 postcodecount = coronadata['postcode'].unique()
 #print("post code count ", postcodecount)
