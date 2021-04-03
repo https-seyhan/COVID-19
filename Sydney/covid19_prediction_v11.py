@@ -24,7 +24,6 @@ AUdailytests = AUdailytests[keepAU]
 #AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
 
 AUdailytests.head()
-
 AUdailytests['new_cases'].astype(float)
 AUdailytests['DeltaCase'] = AUdailytests['new_cases'].diff()
 AUdailytests['DeltaCase'] = AUdailytests['DeltaCase'].fillna(0)
