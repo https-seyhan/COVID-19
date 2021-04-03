@@ -112,7 +112,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
     # (1) Calculate Lambda
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
-
     #previous model
     #lam = ma[:-1].values * sumtwovecs
     #improved model
