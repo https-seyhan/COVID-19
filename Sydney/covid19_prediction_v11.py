@@ -40,7 +40,6 @@ plt.show()
 #calculate ratio of tested vs, population
 
 AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] / row['population'], axis=1)
-
 #calculate new tests to total tests ratio
 
 AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
