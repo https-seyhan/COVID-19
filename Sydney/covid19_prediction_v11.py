@@ -108,7 +108,6 @@ def plotNSW():
 
 movingAverage = plotNSW()
 
-
 def get_posteriors(ma, sigma=0.15):
     GAMMA = 1 / 14 # 1 divided by the moving average
 
