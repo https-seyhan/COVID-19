@@ -319,7 +319,6 @@ def plotDataFrame(period, imgname):
     #ax.set_title('Predicted R nought Values')
 
     period['R0'] = np.round(period['R0'], 4)
-
     period['Date'] = period['Date'].dt.strftime('%d%b%Y')
 
     ax.table(cellText=period.values, colLabels=period.columns, loc='center')
