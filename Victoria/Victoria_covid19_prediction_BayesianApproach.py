@@ -310,7 +310,6 @@ def plot_rt(result):
 
 def plotDataFrame(period, imgname):
     fig, ax = plt.subplots()
-
     # hide axes
     fig.patch.set_visible(False)
     ax.axis('off')
