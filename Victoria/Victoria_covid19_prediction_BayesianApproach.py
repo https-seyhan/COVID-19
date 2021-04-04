@@ -207,7 +207,6 @@ def plotVicCov19(flattened, rolling):
 
     ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
     fig.set_facecolor('w')
-
     # Plot graphs
     ax.plot(flattened, color='blue', linestyle='dashdot', label='Detected Covid-19 cases')
     ax.legend(['Detected Cov-19 cases'])
