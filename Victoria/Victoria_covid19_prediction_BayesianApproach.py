@@ -190,7 +190,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
         # Execute full Bayes' Rule
         posteriors[current_day] = numerator / denominator
-
         # Add to the running sum of log likelihoods
         log_likelihood += np.log(denominator)
 
