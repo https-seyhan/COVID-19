@@ -50,7 +50,6 @@ def getVicdata():
                                 center=True).mean(std=2).round()
 
     plotVicCov19(flattened, rolling)
-
     calculateTotalCases(vicdata)
     calculatenewcasestotalratio(vicdata)
     #print("New Column Names ", vicdata.columns)
