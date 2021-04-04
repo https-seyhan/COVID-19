@@ -218,7 +218,6 @@ def plotVicCov19(flattened, rolling):
     plt.show()
 
 def plot_rt(result):
-
     fig, ax = plt.subplots(1, 1, figsize=figsize)
     ax.set_title(f"VIC")
     ax.set_title(f'Improved Bayesian Approach: Real-time $R_t$ Prediction of Victoria')
