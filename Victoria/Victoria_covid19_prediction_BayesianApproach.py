@@ -60,7 +60,6 @@ def getVicdata():
     hdis = highest_density_interval(posteriors, p=alpha)
 
     plotCoeffs(posteriors, hdi, hdis)
-
     most_likely = posteriors.idxmax().rename('ML')
     # Look into why you shift -1
     result = pd.concat([most_likely, hdis], axis=1)
