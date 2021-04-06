@@ -15,7 +15,6 @@ from scipy.interpolate import interp1d
 from scipy import stats
 
 dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
-
 dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=',')
 AUdailytests = dailytests[dailytests['location'] == 'Australia']
 
