@@ -20,7 +20,6 @@ AUdailytests = dailytests[dailytests['location'] == 'Australia']
 
 keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 AUdailytests = AUdailytests[keepAU]
-
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 #drop na
 #AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
