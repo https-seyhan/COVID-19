@@ -73,7 +73,6 @@ def plotNSWcases():
     flattened = pd.DataFrame(summaydata.to_records())
     flattened.set_index('date', inplace=True)
     
-
     rolling = flattened.rolling(14,
                                  win_type='gaussian',
                                  min_periods=1,
