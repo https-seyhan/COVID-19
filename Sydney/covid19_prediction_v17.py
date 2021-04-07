@@ -118,7 +118,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
     lam = ma[:-1].values * sumtwovecs + newtotalratio[:, None]
 
-
     # (2) Calculate each day's likelihood
     likelihoods = pd.DataFrame(
         data=sps.poisson.pmf(ma[1:].values, lam),
