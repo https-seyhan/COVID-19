@@ -69,7 +69,6 @@ coronadata['date'] = pd.to_datetime(coronadata['date'])
 coronadata['cases'] = 1
 
 def plotNSWcases():
-
     fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
     summaydata = pd.pivot_table(data=coronadata, values=['cases'], index=['date'], aggfunc=np.sum)
     flattened = pd.DataFrame(summaydata.to_records())
