@@ -26,7 +26,6 @@ dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=','
 AUdailytests = dailytests[dailytests['location'] == 'Australia' ]
 
 AUdailytests = AUdailytests[keepAU]
-
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 AUdailytests = AUdailytests[AUdailytests['date'] >= '2020-01-25'] # 2020-01-25 is the date that cases are started to reported by the Australian Gov
 print("AUdailytests size ", len(AUdailytests))
