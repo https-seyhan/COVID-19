@@ -56,7 +56,7 @@ plt.show()
 
 coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=True, sep=',')
 coronadata = coronadata.rename(columns={"notification_date": "date"})
-#print("Coronadata Columns ", coronadata.columns)
+
 #keep notification_date and postcode
 
 #Clean data
