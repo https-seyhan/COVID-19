@@ -55,7 +55,6 @@ def plotNSW():
 
     ax.set_xlim(pd.Timestamp('2020-01-22'), flattened.index.get_level_values('notification_date')[-1] + pd.Timedelta(days=1))
     fig.set_facecolor('w')
-
     # Plot graphs
     ax.plot(flattened, color='blue', linestyle='dashdot', zorder=1, alpha=.90, label = 'Detected Covid-19 cases')
     ax.legend(['Detected Cov-19 cases'])
