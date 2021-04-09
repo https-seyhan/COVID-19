@@ -35,7 +35,6 @@ def getVicdata():
 
     vicdata['Date'] = vicdata['Date'].apply(lambda x: x.replace("/", "-"))
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
-
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
 
