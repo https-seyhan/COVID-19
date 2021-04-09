@@ -3,6 +3,8 @@ import numpy as np
 import csv
 import seaborn as sb
 import operator
+import os
+import re
 from urllib.request import urlopen
 from matplotlib import pyplot as plt
 from matplotlib.dates import date2num, num2date
@@ -14,8 +16,7 @@ from scipy import stats as sps
 from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
-import os
-import re
+
 
 #Global variables
 R_T_MAX = 6
