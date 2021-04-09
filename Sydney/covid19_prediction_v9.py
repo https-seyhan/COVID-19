@@ -6,7 +6,6 @@ import operator
 from urllib.request import urlopen
 from matplotlib import pyplot as plt
 from matplotlib.dates import date2num, num2date
-
 from collections import Counter
 from matplotlib.colors import ListedColormap
 from matplotlib import dates as mdates
