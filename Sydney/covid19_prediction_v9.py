@@ -26,7 +26,6 @@ coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
 coronadata = coronadata[keep]
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
-
 #create cases
 coronadata['cases'] = 1
 
