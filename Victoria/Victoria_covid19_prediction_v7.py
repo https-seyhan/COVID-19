@@ -277,7 +277,6 @@ def plot_rt(result):
                     zorder=3)
 
     ax.axhline(1.0, c='k', lw=1, label='$R_t=1.0$', alpha=.25);
-
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
