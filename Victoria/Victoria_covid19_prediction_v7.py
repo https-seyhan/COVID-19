@@ -17,7 +17,6 @@ from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
 
-
 #Global variables
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
