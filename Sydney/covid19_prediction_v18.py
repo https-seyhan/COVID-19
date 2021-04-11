@@ -193,7 +193,6 @@ def highest_density_interval(pmf, p, debug=False):
                             index=pmf.columns)
 
     cumsum = np.cumsum(pmf.values)
-
     # N x N matrix of total probability mass for each low, high
     total_p = cumsum - cumsum[:, None]
 
