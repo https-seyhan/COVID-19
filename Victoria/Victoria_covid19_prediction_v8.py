@@ -146,7 +146,7 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     #print("New Total Ratio ", newtotalratio[:, None])
     #improved model
     lam = ma[:-1].values * sumtwovecs + newtotalratio[:, None]
-    #print("Lamda ", lam)
+    
     # (2) Calculate each day's likelihood
     likelihoods = pd.DataFrame(
         data=sps.poisson.pmf(ma[1:].values, lam),
