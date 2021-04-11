@@ -30,7 +30,6 @@ AUdailytests = AUdailytests[keepAU]
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 AUdailytests = AUdailytests[AUdailytests['date'] >= teststartdate ] # 2020-01-25 is the date that cases are started to reported by the Australian Gov
 AUdailytests['new_cases'].astype(float)
-
 #calculate ratio of tested vs, population
 #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic cases.
 #asymptomatic cases result in less accurate models due to its nature.
