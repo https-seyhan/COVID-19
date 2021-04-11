@@ -18,6 +18,8 @@ from datetime import datetime
 import os
 import re
 
+
+os.chdir('/home/saul/corona')
 #Global variables
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
@@ -27,7 +29,6 @@ figsize = (1500 / 50, 400 / 50)
 alpha=.90
 coef = 90
 
-os.chdir('/home/saul/corona')
 
 def getVicdata():
     print(f'Victoria')
