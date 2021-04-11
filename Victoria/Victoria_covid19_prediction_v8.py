@@ -59,7 +59,6 @@ def getVicdata():
     #get_posteriors(rolling, sigma=0.25)
     plotPosteriors(posteriors)
 
-
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
 
     # Note that this takes a while to execute - it's not the most efficient algorithm
