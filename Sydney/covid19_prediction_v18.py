@@ -208,7 +208,6 @@ hdi = highest_density_interval(posteriors, p=.9, debug=True)
 
 #Note that this takes a while to execute - it's not the most efficient algorithm
 hdis = highest_density_interval(posteriors, p=.9)
-
 most_likely = posteriors.idxmax().rename('ML')
 
 # Look into why you shift -1
