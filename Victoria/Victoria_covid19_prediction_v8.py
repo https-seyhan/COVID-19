@@ -39,7 +39,6 @@ def getVicdata():
 
 
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
-
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
