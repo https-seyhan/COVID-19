@@ -168,7 +168,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
         log_likelihood += np.log(denominator)
     return posteriors, log_likelihood
 
-
 # Note that we're fixing sigma to a value just for the example
 AUdailytests.set_index("date" , inplace=True)
 posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
@@ -200,7 +199,6 @@ def highest_density_interval(pmf, p, debug=False):
 
     # Find the smallest range (highest density)
     best = (highs - lows).argmin()
-
     low = pmf.index[lows[best]]
     high = pmf.index[highs[best]]
 
