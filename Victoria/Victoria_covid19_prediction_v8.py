@@ -68,7 +68,6 @@ def getVicdata():
 
     # Look into why you shift -1
     result = pd.concat([most_likely, hdis], axis=1)
-
     plot_rt(result)
 
 def plotCoeffs(posteriors, hdi, hdis):
