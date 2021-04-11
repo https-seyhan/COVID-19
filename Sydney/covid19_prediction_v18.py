@@ -98,9 +98,6 @@ print(" Len Moving Averages", len(movingAverage))
 
 def get_posteriors(ma, newtotalratio, sigma=0.15):
 
-    print(" Moving Averages", ma)
-    print(" Len Moving Averages", len(ma))
-    print(" Len newtotalratio", len(newtotalratio))
 
     GAMMA = 1 / 14 # 1 divided by the moving average
 
