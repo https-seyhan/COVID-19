@@ -247,7 +247,6 @@ def plot_rt(result, ax):
 
     index = result['ML'].index.get_level_values('date')
     values = result['ML'].values
-
     # Plot dots and line
     ax.plot(index, values, c='k', zorder=1, alpha=.25)
     ax.scatter(index,
