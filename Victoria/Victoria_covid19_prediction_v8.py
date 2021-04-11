@@ -211,7 +211,6 @@ def plotVicCov19(flattened, rolling):
 
     # Plot graphs
     ax.plot(flattened, color='blue', linestyle='dashdot', label='Detected Covid-19 cases')
-
     ax.legend(['Detected Cov-19 cases'])
     ax.plot(rolling, color='red', zorder=1, alpha=alpha, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
 
@@ -278,7 +277,6 @@ def plot_rt(result):
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax.xaxis.set_minor_locator(mdates.DayLocator())
-
     ax.yaxis.set_major_locator(ticker.MultipleLocator(1))
     ax.yaxis.set_major_formatter(ticker.StrMethodFormatter("{x:.1f}"))
     ax.yaxis.tick_right()
