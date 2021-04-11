@@ -30,7 +30,7 @@ AUdailytests = dailytests[dailytests['location'] == 'Australia' ]
 AUdailytests = AUdailytests[keepAU]
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 AUdailytests = AUdailytests[AUdailytests['date'] >= teststartdate ] # 2020-01-25 is the date that cases are started to reported by the Australian Gov
-print("AUdailytests size ", len(AUdailytests))
+
 AUdailytests['new_cases'].astype(float)
 
 #calculate ratio of tested vs, population
