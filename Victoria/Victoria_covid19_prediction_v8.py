@@ -261,7 +261,6 @@ def plot_rt(result):
 
     extended = pd.date_range(start=pd.Timestamp(teststartdate),
                              end=index[-1] + pd.Timedelta(days=1))
-
     ax.fill_between(extended,
                     lowfn(date2num(extended)),
                     highfn(date2num(extended)),
