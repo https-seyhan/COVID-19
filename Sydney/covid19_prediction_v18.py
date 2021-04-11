@@ -23,7 +23,6 @@ dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe65
 dailytests ="https://covid.ourworldindata.org/data/owid-covid-data.csv"
 
 teststartdate = '2020-01-25'
-
 dailytests = pd.read_csv(dailytests, parse_dates=['date'], squeeze=True, sep=',')
 AUdailytests = dailytests[dailytests['location'] == 'Australia' ]
 AUdailytests = AUdailytests[keepAU]
