@@ -51,7 +51,6 @@ def getVicdata():
                                 center=True).mean(std=2).round()
 
     #plotVicCov19(flattened, rolling)
-
     calculateTotalCases(vicdata)
     calculatenewcasestotalratio(vicdata)
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
