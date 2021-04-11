@@ -18,7 +18,6 @@ from datetime import datetime
 import os
 import re
 
-
 os.chdir('/home/saul/corona')
 #Global variables
 R_T_MAX = 6
