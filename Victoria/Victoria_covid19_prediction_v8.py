@@ -111,7 +111,7 @@ def highest_density_interval(posteriors, p, debug=False):
                             index=posteriors.columns)
 
     cumsum = np.cumsum(posteriors.values)
-    #print("Posterior Values", posteriors.values)
+    
 
     # N x N matrix of total probability mass for each low, high
     total_p = cumsum - cumsum[:, None]
