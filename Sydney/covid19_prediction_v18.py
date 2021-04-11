@@ -207,7 +207,7 @@ def highest_density_interval(pmf, p, debug=False):
                             f'High_{p * 100:.0f}'])
 
 
-print("Posteriors !!!!!!!", posteriors)
+
 hdi = highest_density_interval(posteriors, p=.9, debug=True)
 
 
