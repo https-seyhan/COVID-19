@@ -28,7 +28,6 @@ figsize = (1500 / 50, 400 / 50)
 alpha=.90
 coef = 90
 
-
 def getVicdata():
     print(f'Victoria')
     dailydata = pd.read_csv('cases_daily_state.csv', parse_dates=['Date'], sep=',')
