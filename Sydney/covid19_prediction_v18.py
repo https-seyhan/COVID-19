@@ -206,8 +206,6 @@ def highest_density_interval(pmf, p, debug=False):
                      index=[f'Low_{p * 100:.0f}',
                             f'High_{p * 100:.0f}'])
 
-
-
 hdi = highest_density_interval(posteriors, p=.9, debug=True)
 
 
