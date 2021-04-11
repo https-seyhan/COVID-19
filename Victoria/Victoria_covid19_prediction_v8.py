@@ -137,7 +137,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     #r_t_range = np.linspace(0, R_T_MAX, R_T_MAX * 10 + 5)
     ma = ma.VIC # get new cases to be used in the lambda calculation
 
-
     # (1) Calculate Lambda
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
     #print("Sum two vectors ", sumtwovecs)
