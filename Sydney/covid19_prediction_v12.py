@@ -249,7 +249,6 @@ plt.show()
 
 def plot_rt(result, ax):
     ax.set_title(f"NSW")
-
     # Colors
     ABOVE = [1, 0, 0]
     MIDDLE = [1, 1, 1]
