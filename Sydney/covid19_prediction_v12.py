@@ -23,9 +23,6 @@ AUdailytests = AUdailytests[keepAU]
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 #drop na
 #AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
-
-
-
 AUdailytests['new_cases'].astype(float)
 AUdailytests['DeltaCase'] = AUdailytests['new_cases'].diff()
 AUdailytests['DeltaCase'] = AUdailytests['DeltaCase'].fillna(0)
