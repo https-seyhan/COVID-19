@@ -73,7 +73,6 @@ def calculatenewcasestotalratio(vicdata):
     #asymptomatic cases result in less accurate models due to its nature.
     vicdata['newcasestotalratio']  = vicdata['VIC'] / vicdata['total_cases']
 
-
 #Calculate Bayesian posteriors
 def get_posteriors(ma, newtotalratio, sigma=0.15):
 
