@@ -68,7 +68,6 @@ def calculateTotalCases(vicdata):
     #print(vicdata['VIC'].idxmax())
     vicdata['total_cases'] = vicdata['VIC'].rolling(min_periods=1, window=11).sum()
 
-
 def calculatenewcasestotalratio(vicdata):
     #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic COVID-19 cases.
     #asymptomatic cases result in less accurate models due to its nature.
