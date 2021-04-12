@@ -40,8 +40,7 @@ AUdailytests['testratio'] =  AUdailytests.apply(lambda row: row['total_tests'] /
 #calculate new tests to total tests ratio
 AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['total_cases']
 
-print("AUdailytests Columns ", AUdailytests.columns)
-print("AUdailytests  ", AUdailytests)
+
 
 #Plot ratio
 
