@@ -54,7 +54,7 @@ dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe65
 
 coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=True, sep=',')
 coronadata = coronadata.rename(columns={"notification_date": "date"})
-print("Coronadata Columns ", coronadata.columns)
+
 #keep notification_date and postcode
 
 #Clean data
