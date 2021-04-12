@@ -43,8 +43,7 @@ def getVicdata():
     print(" Len Moving Averages", len(rolling))
     print("Moving Averages ", rolling.head())
 
-    calculateTotalCases(vicdata)
-    
+    calculateTotalCases(vicdata)   
     calculatenewcasestotalratio(vicdata)
     print("New Column Names ", vicdata.columns)
     print("New cases ratio describe ", vicdata['newcasestotalratio'].describe())
