@@ -28,7 +28,6 @@ def getVicdata():
 
     vicdata['newDate2'] = vicdata['newDate'].apply(lambda x: datetime.strptime(x, '%d-%m-%Y'))
 
-
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
 
     flattened = pd.DataFrame(summarydata.to_records())
