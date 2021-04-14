@@ -7,7 +7,6 @@ from matplotlib import dates as mdates
 from datetime import datetime
 from scipy import stats as sps
 
-
 #Global variables
 R_T_MAX = 6
 GAMMA = 1 / 14 # 1 divided by the moving average
