@@ -81,7 +81,7 @@ def highest_density_interval(posteriors, p, debug=False):
 
 def calculateTotalCases(vicdata):
     
-    #print(vicdata['VIC'].describe())
+    
     #print(vicdata['VIC'].idxmax())
     vicdata['total_cases'] = vicdata['VIC'].rolling(min_periods=1, window=1000).sum()
     #print("total cases ", vicdata['total_cases'].describe())
