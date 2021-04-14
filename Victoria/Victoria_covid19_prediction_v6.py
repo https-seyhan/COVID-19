@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
+import os
+import re
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 from datetime import datetime
 from scipy import stats as sps
-import os
-import re
+
 
 #Global variables
 R_T_MAX = 6
