@@ -34,7 +34,6 @@ def getVicdata():
                                 win_type='gaussian',
                                 min_periods=1,
                                 center=True).mean(std=2).round()
-
     calculateTotalCases(vicdata)
     calculatenewcasestotalratio(vicdata)
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
