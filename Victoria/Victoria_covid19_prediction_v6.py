@@ -18,7 +18,6 @@ coef = 90
 
 os.chdir('/home/saul/corona')
 
-
 def getVicdata():
     print(f'Victoria')
     dailydata = pd.read_csv('cases_daily_state.csv', parse_dates=['Date'], sep=',')
