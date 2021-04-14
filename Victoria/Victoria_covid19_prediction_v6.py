@@ -78,8 +78,7 @@ def highest_density_interval(posteriors, p, debug=False):
 
 def calculateTotalCases(vicdata):      
     vicdata['total_cases'] = vicdata['VIC'].rolling(min_periods=1, window=1000).sum()
-    #print("total cases ", vicdata['total_cases'].describe())
-    #print("total cases ", vicdata['total_cases'].head(10))
+
 
 def calculatenewcasestotalratio(vicdata):
     #calculate new tests to total tests ratio. This ratio indicates the undetected and asymptomatic COVID-19 cases.
