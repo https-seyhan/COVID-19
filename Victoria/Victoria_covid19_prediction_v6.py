@@ -46,7 +46,7 @@ def getVicdata():
     print("Posteriors Types ", posteriors.describe())
 
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
-    #print(" High Density Intervals ", hdi)
+   
 
 def plotPosteriors(posteriors):
     ax = posteriors.plot(title=' Improved Approach: VIC - Daily Posterior for $R_t$',
