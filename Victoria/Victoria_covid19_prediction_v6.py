@@ -163,7 +163,6 @@ def plotVicCov19(flattened, rolling):
     ax.set_xlabel('Date', fontweight='bold')
     # ax.grid(which='major', axis='y', c='k', alpha=.3, zorder=-2)
     # ax.margins(0)
-  
     ax.set_xlim(pd.Timestamp(teststartdate), flattened.index.get_level_values('newDate2')[-1] + pd.Timedelta(days=1))
 
     fig.set_facecolor('w')
