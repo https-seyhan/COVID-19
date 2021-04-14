@@ -89,9 +89,7 @@ def calculatenewcasestotalratio(vicdata):
 #Calculate Bayesian posteriors
 def get_posteriors(ma, newtotalratio, sigma=0.15):
 
-    #print(" Len Moving Averages", len(ma))
-    #print(" Len newtotalratio", len(newtotalratio))
-    #print("Sigma ", sigma)
+
 
 
     # We create an array for every possible value of Rt
