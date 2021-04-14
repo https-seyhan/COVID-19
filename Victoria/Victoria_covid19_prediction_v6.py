@@ -56,7 +56,6 @@ def plotPosteriors(posteriors):
                          c='k',
                          alpha=.5,
                          xlim=(0.4, 6))
-
     ax.set_xlabel('$R_t$');
     plt.show()
 
