@@ -90,7 +90,6 @@ def calculatenewcasestotalratio(vicdata):
 def get_posteriors(ma, newtotalratio, sigma=0.15):
 
 
-
     # We create an array for every possible value of Rt
 
     r_t_range = np.linspace(0, R_T_MAX, len(newtotalratio))
