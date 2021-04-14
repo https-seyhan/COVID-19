@@ -44,7 +44,6 @@ def getVicdata():
     plotPosteriors(posteriors)
     print("Posteriors !!!!!!!! ", posteriors.values)
     print("Posteriors Types ", posteriors.describe())
-
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
    
 
