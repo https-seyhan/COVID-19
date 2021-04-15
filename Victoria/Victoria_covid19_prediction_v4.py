@@ -33,8 +33,7 @@ def getVicdata():
                                 min_periods=1,
                                 center=True).mean(std=2).round()
     
-    print(" Len Moving Averages", len(rolling))
-    print("Moving Averages ", rolling.head())
+ 
 
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
