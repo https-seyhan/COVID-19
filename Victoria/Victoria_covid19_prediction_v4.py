@@ -45,9 +45,7 @@ def calculateTotalCases(vicdata):
     print("total cases ", vicdata['total_cases'].head())
 
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
-    print(" Len Moving Averages", len(ma))
-    print(" Len newtotalratio", len(newtotalratio))
-    print("Sigma ", sigma)
+
 
     # We create an array for every possible value of Rt
     r_t_range = np.linspace(0, R_T_MAX, len(newtotalratio))
