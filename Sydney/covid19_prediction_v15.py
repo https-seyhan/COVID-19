@@ -333,7 +333,6 @@ def plot_rt(result, ax):
 
 
 fig, ax = plt.subplots(figsize=(600 / 72, 400 / 72))
-
 plot_rt(result, ax)
 ax.set_title(f'Real-time $R_t$ for NSW')
 ax.xaxis.set_major_locator(mdates.WeekdayLocator())
