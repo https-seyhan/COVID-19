@@ -250,7 +250,6 @@ ax.fill_between(hdi.index,
                 alpha=.1,
                 lw=0,
                 label='HDI')
-
 ax.legend();
 plt.show()
 
