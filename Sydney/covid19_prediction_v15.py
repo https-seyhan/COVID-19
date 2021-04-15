@@ -25,7 +25,6 @@ AUdailytests = AUdailytests[AUdailytests['date'] >= '2020-01-25'] # 2020-01-25 i
 print("AUdailytests size ", len(AUdailytests))
 #drop na
 #AUdailytests = AUdailytests[AUdailytests['total_tests'].notna()]
-
 AUdailytests.head()
 AUdailytests['new_cases'].astype(float)
 AUdailytests['DeltaCase'] = AUdailytests['new_cases'].diff()
