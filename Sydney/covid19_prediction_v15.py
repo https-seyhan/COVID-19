@@ -88,8 +88,7 @@ def plotNSWcases():
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
-    ax.xaxis.set_minor_locator(mdates.DayLocator())
-
+    ax.xaxis.set_minor_locat
     ax.set_title(f"NSW COVID-19 Cases", fontweight='bold')
     ax.set_ylabel('covid - 19 cases', fontweight='bold')
     ax.set_xlabel('Date', fontweight='bold')
