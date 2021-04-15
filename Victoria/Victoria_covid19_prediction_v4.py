@@ -26,7 +26,6 @@ def getVicdata():
     calculateTotalCases(vicdata)
     summarydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate2'], aggfunc=np.sum)
     flattened = pd.DataFrame(summarydata.to_records())
-
     flattened.set_index('newDate2', inplace=True)
 
     vicdata = vicdata[['newDate', 'VIC']]
