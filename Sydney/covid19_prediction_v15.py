@@ -45,7 +45,6 @@ AUdailytests['newcasestotalratio'] = AUdailytests['new_cases'] / AUdailytests['t
 
 #print("AUdailytests Columns ", AUdailytests.columns)
 #print("AUdailytests  ", AUdailytests)
-
 #Plot ratio
 
 fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
