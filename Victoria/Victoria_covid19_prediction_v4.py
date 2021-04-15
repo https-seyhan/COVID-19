@@ -28,7 +28,6 @@ def getVicdata():
     flattened = pd.DataFrame(summarydata.to_records())
     flattened.set_index('newDate2', inplace=True)
     vicdata = vicdata[['newDate', 'VIC']]
-
     rolling = flattened.rolling(period,
                                 win_type='gaussian',
                                 min_periods=1,
