@@ -37,9 +37,7 @@ def getVicdata():
     #get_posteriors(rolling, sigma=0.25)
 
 def calculateTotalCases(vicdata):
-    print("Columns ", vicdata.columns)
-    print(vicdata['VIC'].describe())
-    print(vicdata['VIC'].idxmax())
+
     vicdata['total_cases'] = vicdata['VIC'].rolling(min_periods=1, window=11).sum()
     print("total cases ", vicdata['total_cases'].describe())
     print("total cases ", vicdata['total_cases'].head())
