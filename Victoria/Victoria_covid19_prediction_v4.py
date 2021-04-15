@@ -50,7 +50,6 @@ def calculateTotalCases(vicdata):
     print("total cases ", vicdata['total_cases'].head())
 
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
-
     print(" Len Moving Averages", len(ma))
     print(" Len newtotalratio", len(newtotalratio))
     print("Sigma ", sigma)
