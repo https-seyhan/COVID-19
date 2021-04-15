@@ -3,8 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 from datetime import datetime
-import os
-import re
+
 
 #Global variables
 R_T_MAX = 6
