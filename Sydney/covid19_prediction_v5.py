@@ -41,7 +41,6 @@ def statedata(postcode):
 
 
 
-
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
 #get descriptive stats of cases of postcodes
