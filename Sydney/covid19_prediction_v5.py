@@ -47,7 +47,7 @@ vals = np.array(list(postcodecases.values()))
 #sb.distplot(vals)
 #plt.show()
 
-#get top ten highest postcodes
+
 
 #sort postcodes by cases in ascending order
 sorted_cases = dict(sorted(postcodecases.items(), key=operator.itemgetter(1),reverse=True))
