@@ -39,7 +39,6 @@ for pcode in range(len(postcodecount)):
     #print("Post code ", postcodecount[pcode])
     statedata(postcodecount[pcode])
 
-#print ("Dictionary ",postcodecases )
 
 
 
