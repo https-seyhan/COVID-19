@@ -32,7 +32,6 @@ def statedata(postcode):
     sum = 0
     #print("state", str(state))
     statedat = coronadata[coronadata['postcode'] == postcode]
-
     #Allocate count of cases to each postcode
     postcodecases[postcode] = len(statedat)
 
