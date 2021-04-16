@@ -42,7 +42,7 @@ for pcode in range(len(postcodecount)):
 
 #print ("Dictionary ",postcodecases )
 
-#print(postcodecases.values())
+
 
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
