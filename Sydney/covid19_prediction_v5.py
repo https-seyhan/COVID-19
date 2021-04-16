@@ -41,8 +41,7 @@ def statedata(postcode):
 
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
-#get descriptive stats of cases of postcodes
-print(dfcases.describe())
+
 
 vals = np.array(list(postcodecases.values()))
 #sb.boxplot(data= vals)
