@@ -18,7 +18,6 @@ dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe65
 coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'],
                          squeeze=True, sep=',')
 #keep notification_date and postcode
-
 coronadata = coronadata[(coronadata['postcode'] != 0)]
 coronadata = coronadata[(coronadata['postcode'].notna())]
 coronadata = coronadata[keep]
