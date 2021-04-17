@@ -89,7 +89,7 @@ def plotNSW():
                                  min_periods=1,
                                  center=True).mean(std=2).round()
 
-    print("Rolling ", rolling.head(10))
+    
 
   
     # Formatting
