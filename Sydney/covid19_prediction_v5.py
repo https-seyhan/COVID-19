@@ -78,7 +78,6 @@ def plotgraphs(postcode):
     ax.set_title(f"postcode = {postcode}")
     ax.set_ylabel('covid - 19 cases')
     ax.set_xlabel('Date')
-
     plt.show()
     #print(summaydata)
 
