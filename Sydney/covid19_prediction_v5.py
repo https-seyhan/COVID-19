@@ -78,9 +78,6 @@ def plotgraphs(postcode):
     plt.show()
     #print(summaydata)
 
-#for pc in range(len(top10postcodes)):
-    #print(top10postcodes[pc])
-    #plotgraphs(top10postcodes[pc])
 
 def plotNSW():
     fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
