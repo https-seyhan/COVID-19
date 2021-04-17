@@ -114,10 +114,7 @@ movingAverage = plotNSW()
 
 def get_posteriors(ma, sigma=0.15):
     GAMMA = 1 / 14 # 1 divided by the moving average
-    print("MA DATA ", ma)
-    #print("MA DATA ", ma[:-1].values)
-    print("Lenght of MA ", len(ma))
-    print("NSW DATA Shape ", ma.shape)
+
 
     # We create an array for every possible value of Rt
     R_T_MAX = 6
