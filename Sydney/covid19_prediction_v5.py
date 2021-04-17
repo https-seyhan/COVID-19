@@ -92,7 +92,7 @@ def plotNSW():
 
     print("Rolling ", rolling.head(10))
 
-    #print("Rolling Columns ", rolling.column)
+   
 
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
