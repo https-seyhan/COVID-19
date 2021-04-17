@@ -122,7 +122,7 @@ def get_posteriors(ma, sigma=0.15):
     # (1) Calculate Lambda
     #ma[:-1] = ma[:-1].T
 
-    #print("MAAAAAAAAA", ma[:-1])
+    
     lam = ma[:-1].values * np.exp(GAMMA * (r_t_range[:, None] - 1))
 
     # (2) Calculate each day's likelihood
