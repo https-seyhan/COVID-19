@@ -47,7 +47,6 @@ vals = np.array(list(postcodecases.values()))
 #sort postcodes by cases in ascending order
 sorted_cases = dict(sorted(postcodecases.items(), key=operator.itemgetter(1),reverse=True))
 
-
 top10postcodes= []
 for postcode, case in Counter(sorted_cases).most_common(10):
     print ('%s: %i' % (postcode, case))
