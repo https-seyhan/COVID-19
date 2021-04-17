@@ -36,7 +36,7 @@ def statedata(postcode):
     postcodecases[postcode] = len(statedat)
     for pcode in range(len(postcodecount)):
       statedata(postcodecount[pcode])
-
+      
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
 vals = np.array(list(postcodecases.values()))
