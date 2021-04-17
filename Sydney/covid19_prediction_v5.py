@@ -88,8 +88,7 @@ def plotNSW():
                                  win_type='gaussian',
                                  min_periods=1,
                                  center=True).mean(std=2).round()
-
-  
+ 
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
