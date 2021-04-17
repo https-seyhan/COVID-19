@@ -114,7 +114,6 @@ def plotNSW():
 
 movingAverage = plotNSW()
 
-
 def get_posteriors(ma, sigma=0.15):
 
     print("movingAverage columns", ma.columns)
