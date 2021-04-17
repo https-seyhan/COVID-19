@@ -202,7 +202,6 @@ def highest_density_interval(pmf, p=.9, debug=False):
 
     # Find the smallest range (highest density)
     best = (highs - lows).argmin()
-
     low = pmf.index[lows[best]]
     high = pmf.index[highs[best]]
 
