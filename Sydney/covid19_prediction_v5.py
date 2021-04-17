@@ -69,7 +69,6 @@ def plotgraphs(postcode):
                lw=.5,
                c=cmap(color_mapped(flattened['cases'])),
                edgecolors='k', zorder=2)
-
     ax.set_title(f"postcode = {postcode}")
     ax.set_ylabel('covid - 19 cases')
     ax.set_xlabel('Date')
