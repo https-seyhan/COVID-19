@@ -99,7 +99,6 @@ def plotNSWcases():
     plt.show()
 
     return rolling
-
 movingAverage = plotNSWcases()
 print(" Len Moving Averages", len(movingAverage))
 
