@@ -75,7 +75,6 @@ def plotNSWcases():
     summaydata = pd.pivot_table(data=coronadata, values=['cases'], index=['date'], aggfunc=np.sum)
     flattened = pd.DataFrame(summaydata.to_records())
     flattened.set_index('date', inplace=True)
-    
 
     rolling = flattened.rolling(14,
                                  win_type='gaussian',
