@@ -34,7 +34,6 @@ os.chdir('/home/saul/corona')
 
 def getVicdata():
     dailydata = pd.read_csv('cases_daily_state.csv', parse_dates=['Date'], sep=',')
-
     vicdata = dailydata[['Date', 'VIC']] # keep two variables Date and VIC
     vicdata['Date'] = vicdata['Date'].apply(lambda x: x.replace("/", "-"))
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
