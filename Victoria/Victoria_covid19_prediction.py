@@ -13,7 +13,6 @@ coef = 90
 
 os.chdir('/home/saul/corona')
 
-
 def getVicdata():
     fig, ax = plt.subplots(figsize=figsize)
     print(f'Victoria')
