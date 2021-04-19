@@ -19,7 +19,6 @@ def getVicdata():
     dailydata = pd.read_csv('cases_daily_state.csv', parse_dates=['Date'], sep=',')
 
     vicdata = dailydata[['Date', 'VIC']] # keep two variables Date and VIC
-
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '/20')
     vicdata['newDate'] = vicdata['newDate'].apply(lambda x: pd.to_datetime(x))
     #vicdata['newDate'] = datetime.strptime(vicdata['newDate'], '%d/%m/%y')
