@@ -103,7 +103,6 @@ def plotNSWcases():
     ax.plot(rolling, color='red', zorder=1, alpha=.90, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
 
     legend = ax.legend(loc='upper left', shadow=True, fontsize='large')
-
     # Put a nicer background color on the legend.
     legend.get_frame()
     plt.show()
