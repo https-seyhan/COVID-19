@@ -25,7 +25,6 @@ def getVicdata():
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '/20')
     vicdata['newDate'] = vicdata['newDate'].apply(lambda x: pd.to_datetime(x))
     #vicdata['newDate'] = datetime.strptime(vicdata['newDate'], '%d/%m/%y')
-
     vicdata = vicdata[['newDate', 'VIC']]
 
     summaydata = pd.pivot_table(data=vicdata, values=['VIC'], index=['newDate'], aggfunc=np.sum)
