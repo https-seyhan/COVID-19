@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 from datetime import datetime
-import os
+
 
 teststartdate = '2020-01-25'
 period = 14 # moving average period is 14 days
