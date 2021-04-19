@@ -49,7 +49,6 @@ def getVicdata():
                                 win_type='gaussian',
                                 min_periods=1,
                                 center=True).mean(std=2).round()
-
     plotVicCov19(flattened, rolling)
 
     calculateTotalCases(vicdata)
