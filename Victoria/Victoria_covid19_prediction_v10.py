@@ -7,6 +7,8 @@ from pandas.plotting import table
 from matplotlib.dates import date2num, num2date
 import seaborn as sb
 import operator
+import os
+import re
 from collections import Counter
 from matplotlib.colors import ListedColormap
 from matplotlib import dates as mdates
@@ -16,8 +18,7 @@ from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
 
-import os
-import re
+
 
 #Since, this is an innovative Bayesian approah, all parts of thius model and its related software codes are licensed under the MIT license/icensed under the MIT license.
 #Feel free to use the model. But, please recognise the author of the model in your use of my model as outlined in the MIT license and as respect to the intellectual property.
