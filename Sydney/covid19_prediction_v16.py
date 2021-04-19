@@ -22,7 +22,6 @@ AUdailytests = dailytests[dailytests['location'] == 'Australia' ]
 keepAU = ['date', 'total_tests', 'new_cases', 'total_cases','population']
 
 AUdailytests = AUdailytests[keepAU]
-
 AUdailytests['date'] = pd.to_datetime(AUdailytests['date'])
 AUdailytests = AUdailytests[AUdailytests['date'] >= '2020-01-25'] # 2020-01-25 is the date that cases are started to reported by the Australian Gov
 print("AUdailytests size ", len(AUdailytests))
