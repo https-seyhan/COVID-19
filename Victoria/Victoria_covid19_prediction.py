@@ -49,7 +49,6 @@ def getVicdata():
 
     # Plot graphs
     ax.plot( flattened, color='blue', linestyle='dashdot',  label='Detected Covid-19 cases')
-
     ax.legend(['Detected Cov-19 cases'])
     #vicdata.plot(vicdata['newDate'], vicdata['VIC'])
     #vicdata.plot()
