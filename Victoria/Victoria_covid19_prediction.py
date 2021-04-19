@@ -5,7 +5,6 @@ from matplotlib import pyplot as plt
 from matplotlib import dates as mdates
 from datetime import datetime
 
-
 teststartdate = '2020-01-25'
 period = 14 # moving average period is 14 days
 figsize = (1500 / 50, 400 / 50)
