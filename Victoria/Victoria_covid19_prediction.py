@@ -20,7 +20,7 @@ def getVicdata():
 
     vicdata = dailydata[['Date', 'VIC']] # keep two variables Date and VIC
 
-    print((vicdata['VIC'].describe()))
+   
 
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '/20')
     vicdata['newDate'] = vicdata['newDate'].apply(lambda x: pd.to_datetime(x))
