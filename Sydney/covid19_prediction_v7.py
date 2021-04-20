@@ -45,7 +45,6 @@ for pcode in range(len(postcodecount)):
     #print("Post code ", postcodecount[pcode])
     statedata(postcodecount[pcode])
 
-
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
 #get descriptive stats of cases of postcodes
