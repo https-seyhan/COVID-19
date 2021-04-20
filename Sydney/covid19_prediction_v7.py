@@ -41,8 +41,7 @@ def statedata(postcode):
     #Allocate count of cases to each postcode
     postcodecases[postcode] = len(statedat)
 
-for pcode in range(len(postcodecount)):
-    
+for pcode in range(len(postcodecount)):   
     statedata(postcodecount[pcode])
 
 #convert list ot series
