@@ -45,9 +45,6 @@ for pcode in range(len(postcodecount)):
     #print("Post code ", postcodecount[pcode])
     statedata(postcodecount[pcode])
 
-#print ("Dictionary ",postcodecases )
-
-#print(postcodecases.values())
 
 #convert list ot series
 dfcases = pd.Series(list(postcodecases.values()))
