@@ -74,7 +74,6 @@ def plotgraphs(postcode):
     flattened.set_index('notification_date', inplace=True)
 
     fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
-
     #ax = sb.lineplot(data=flattened)
     # Plot dots and line
     ax.plot(flattened, c='k', zorder=1, alpha=.25)
