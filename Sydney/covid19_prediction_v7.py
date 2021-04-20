@@ -32,7 +32,7 @@ coronadata = coronadata[keep]
 postcodecount = coronadata['postcode'].unique()
 #print("post code count ", postcodecount)
 
-#print(coronadata.dtypes)
+
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
 
 print("Post code Type ", type(coronadata['postcode']))
