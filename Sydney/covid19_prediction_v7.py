@@ -31,7 +31,6 @@ coronadata = coronadata[keep]
 postcodecount = coronadata['postcode'].unique()
 #print("post code count ", postcodecount)
 coronadata['notification_date'] = pd.to_datetime(coronadata['notification_date'])
-
 coronadata['cases'] = 1
 
 postcodecases = {}
