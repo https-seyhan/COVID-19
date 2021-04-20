@@ -39,7 +39,6 @@ coronadata['cases'] = 1
 
 
 
-
 postcodecases = {}
 def statedata(postcode):
     sum = 0
