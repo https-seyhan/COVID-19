@@ -38,8 +38,7 @@ print("Post code Type ", type(coronadata['postcode']))
 coronadata['cases'] = 1
 
 #There are 438 postcodes
-print("Size ", len(postcodecount))
-#print("List ", postcodecount[0])
+
 
 postcodecases = {}
 def statedata(postcode):
