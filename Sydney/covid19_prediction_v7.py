@@ -37,7 +37,7 @@ print("Post code Type ", type(coronadata['postcode']))
 
 coronadata['cases'] = 1
 
-#There are 438 postcodes
+
 
 
 postcodecases = {}
