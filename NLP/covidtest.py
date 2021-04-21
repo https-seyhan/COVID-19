@@ -7,7 +7,7 @@ import os
 import pandas as pd
 import math
 import numpy as np
-from sklearn.metrics import classification_report
+
 import torch
 import os
 from tqdm import tqdm,trange
@@ -15,7 +15,7 @@ from torch.optim import Adam
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from sklearn.model_selection import train_test_split
 import torch.nn.functional as F
-
+from sklearn.metrics import classification_report
 from pytorch_transformers import (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer)
 import glob
 from os import listdir
