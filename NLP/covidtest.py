@@ -15,7 +15,7 @@ from tqdm import tqdm,trange
 from torch.optim import Adam
 from torch.utils.data import TensorDataset, DataLoader, RandomSampler, SequentialSampler
 from sklearn.model_selection import train_test_split
-import torch.nn.functional as F
+
 from sklearn.metrics import classification_report
 from pytorch_transformers import (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer)
 
