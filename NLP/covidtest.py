@@ -16,8 +16,7 @@ from sklearn.model_selection import train_test_split
 import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from pytorch_transformers import (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer)
-import glob
-import json
+
 from os import listdir
 from os.path import isfile, join
 
