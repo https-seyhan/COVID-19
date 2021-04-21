@@ -73,5 +73,4 @@ with open('/home/saul/corona/CORD-19-research-challenge/2020-03-13/biorxiv_medrx
 # We transpose the resulting df and set index column as its index to get this result
 print(data["body_text"])
 jsondata = pd.DataFrame.from_dict(data, orient='index').T.set_index('paper_id')
-
 #print(jsondata)
