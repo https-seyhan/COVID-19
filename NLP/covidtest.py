@@ -45,7 +45,6 @@ print(len(data_file_address))
 #df_data = pd.read_csv(data_file_address,sep=",",encoding="utf-8",names=['labels','texts'])
 df_data = pd.read_csv(data_file_address,sep=",",encoding="utf-8")
 print(len(df_data))
-
 #print(df_data.columns)
 print("Number of Json files :", len(FileNames))
 
