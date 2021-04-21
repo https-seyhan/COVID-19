@@ -29,7 +29,6 @@ json_files = '/home/saul/corona/CORD-19-research-challenge/2020-03-13/'
 dirs = [x[1] for x in os.walk(json_files)]
 #delete empty lists
 dirs = [x for x in dirs if x !=[]]
-
 print("Directories :", dirs[0])
 
 ListFiles = os.walk(os.getcwd())
