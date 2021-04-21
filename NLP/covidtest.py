@@ -17,8 +17,7 @@ import torch.nn.functional as F
 from sklearn.metrics import classification_report
 from pytorch_transformers import (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer)
 import glob
-from os import listdir
-from os.path import isfile, join
+
 import json
 
 documents = [['','']]
