@@ -23,7 +23,6 @@ from os.path import isfile, join
 
 documents = [['','']]
 os.chdir("/home/saul/corona/CORD-19-research-challenge/2020-03-13") # change this to your local directory
-
 data_file_address = 'all_sources_metadata_2020-03-13.csv'
 json_files = '/home/saul/corona/CORD-19-research-challenge/2020-03-13/'
 
