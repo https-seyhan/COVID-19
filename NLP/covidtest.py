@@ -18,7 +18,6 @@ from torch.utils.data import TensorDataset, DataLoader, RandomSampler, Sequentia
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
 from pytorch_transformers import (XLNetConfig, XLNetForSequenceClassification, XLNetTokenizer)
-
 from os import listdir
 from os.path import isfile, join
 
