@@ -66,7 +66,6 @@ person_dict = json.loads(person_string)
 
 # Reading the json as a dict
 with open('/home/saul/corona/CORD-19-research-challenge/2020-03-13/biorxiv_medrxiv/biorxiv_medrxiv/1a9c229f4f866db4f9c23a77b8c1275b52407c64.json') as json_data:
-
     data = json.load(json_data)
 
 # using the from_dict load function. Note that the 'orient' parameter
