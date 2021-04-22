@@ -53,8 +53,7 @@ def getVicdata():
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
     plotPosteriors(posteriors)
-    #print("Posteriors !!!!!!!! ", posteriors.values)
-    #print("Posteriors Types ", posteriors.describe())
+
 
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
 
