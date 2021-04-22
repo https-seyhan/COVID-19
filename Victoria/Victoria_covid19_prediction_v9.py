@@ -167,7 +167,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
         columns=ma.index,
         data={ma.index[0]: prior0}
     )
-
     # We said we'd keep track of the sum of the log of the probability
     # of the data for maximum likelihood calculation.
     log_likelihood = 0.0
