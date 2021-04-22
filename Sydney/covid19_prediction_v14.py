@@ -227,7 +227,6 @@ ax = most_likely_values.plot(marker='o',
                              title=f'$R_t$ by day',
                              c='blue',
                              markersize=4)
-
 ax.fill_between(hdi.index,
                 hdi['Low_90'],
                 hdi['High_90'],
