@@ -89,7 +89,6 @@ def plotCoeffs(posteriors, hdi, hdis):
     plt.show()
 
 def plotPosteriors(posteriors):
-
     ax = posteriors.plot(title=' Improved Approach: VIC - Daily Posterior for $R_t$',
                          legend=False,
                          lw=1,
