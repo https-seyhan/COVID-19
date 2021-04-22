@@ -195,7 +195,6 @@ def highest_density_interval(pmf, p, debug=False):
     print("Total P ", total_p)
 
     # Return all indices with total_p > p
-
     lows, highs = (total_p > p).nonzero()
 
     print("Lows ", lows)
