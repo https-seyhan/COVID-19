@@ -219,7 +219,6 @@ hdi = highest_density_interval(posteriors, p=.9, debug=True)
 hdis = highest_density_interval(posteriors, p=.9)
 
 most_likely = posteriors.idxmax().rename('ML')
-
 # Look into why you shift -1
 result = pd.concat([most_likely, hdis], axis=1)
 most_likely_values = posteriors.idxmax(axis=0)
