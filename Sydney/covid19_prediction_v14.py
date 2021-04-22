@@ -54,7 +54,6 @@ plt.show()
 #Daily realtime corona cases data
 keep = ['date', 'postcode']
 dailycases = "https://data.nsw.gov.au/data/dataset/aefcde60-3b0c-4bc0-9af1-6fe652944ec2/resource/21304414-1ff1-4243-a5d2-f52778048b29/download/covid-19-cases-by-notification-date-and-postcode-local-health-district-and-local-government-area.csv"
-
 coronadata = pd.read_csv(dailycases, parse_dates=['notification_date'], squeeze=True, sep=',')
 coronadata = coronadata.rename(columns={"notification_date": "date"})
 #print("Coronadata Columns ", coronadata.columns)
