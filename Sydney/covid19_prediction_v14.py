@@ -209,7 +209,6 @@ def highest_density_interval(pmf, p, debug=False):
     print("My Low ", low)
     print("My High ", high)
 
-
     return pd.Series([low, high],
                      index=[f'Low_{p * 100:.0f}',
                             f'High_{p * 100:.0f}'])
