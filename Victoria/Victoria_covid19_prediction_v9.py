@@ -46,7 +46,6 @@ def getVicdata():
                                 min_periods=1,
                                 center=True).mean(std=2).round()
 
-
    
     calculateTotalCases(vicdata)
     calculatenewcasestotalratio(vicdata)
