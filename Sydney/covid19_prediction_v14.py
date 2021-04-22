@@ -78,7 +78,7 @@ def plotNSW():
                                  min_periods=1,
                                  center=True).mean(std=2).round()
 
- 
+
 
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
