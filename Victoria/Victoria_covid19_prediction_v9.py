@@ -55,7 +55,6 @@ def getVicdata():
     plotPosteriors(posteriors)
 
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
-
     # Note that this takes a while to execute - it's not the most efficient algorithm
     hdis = highest_density_interval(posteriors, p=alpha)
 
