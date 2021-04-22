@@ -282,7 +282,6 @@ def plot_rt(result, ax):
                     alpha=.1,
                     lw=0,
                     zorder=3)
-
     ax.axhline(1.0, c='k', lw=1, label='$R_t=1.0$', alpha=.25);
 
     # Formatting
