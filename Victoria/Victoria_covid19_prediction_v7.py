@@ -74,7 +74,6 @@ def plotCoeffs(posteriors, hdi, hdis):
                                  c='blue',
                                  markersize=4,
                                  figsize=figsize)
-
     ax.fill_between(hdi.index,
                     hdi['Low_' + str(coef)],
                     hdi['High_' + str(coef)],
