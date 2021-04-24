@@ -288,7 +288,6 @@ def plot_rt(result):
     #jumpinMay = pd.DataFrame(index= 'NewDate2', index[99:106], values[99:106])
     jumpinMay = pd.DataFrame({'Date': index[98:106],
                               'R0': values[98:106]})
-
     print(jumpinMay)
 
 if __name__ == '__main__':
