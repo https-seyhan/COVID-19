@@ -160,7 +160,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
 
     # Create a DataFrame that will hold our posteriors for each day
     # Insert our prior as the first posterior.
-
     posteriors = pd.DataFrame(
         index=r_t_range,
         columns=ma.index,
