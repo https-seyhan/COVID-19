@@ -91,7 +91,6 @@ def plotPosteriors(posteriors):
                          alpha=.5,
                          xlim=(0.4, 6),
                          figsize=figsize)
-
     ax.set_xlabel('$R_t$');
     plt.show()
 
