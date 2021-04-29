@@ -3,6 +3,8 @@ import numpy as np
 import csv
 import seaborn as sb
 import operator
+import os
+import re
 from urllib.request import urlopen
 from matplotlib import pyplot as plt
 from pandas.plotting import table
