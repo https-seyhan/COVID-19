@@ -15,8 +15,7 @@ from scipy import stats as sps
 from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
-import os
-import re
+
 
 os.chdir('/home/saul/corona')
 #Global variables
