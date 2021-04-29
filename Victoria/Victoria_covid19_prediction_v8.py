@@ -18,7 +18,6 @@ from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
 
-
 os.chdir('/home/saul/corona')
 #Global variables
 R_T_MAX = 6
