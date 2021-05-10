@@ -111,7 +111,6 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
     return posteriors, log_likelihood
 
 def plotVicCov19(flattened, rolling):
-
     fig, ax = plt.subplots(figsize=figsize)
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
