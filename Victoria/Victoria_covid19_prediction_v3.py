@@ -43,7 +43,6 @@ def getVicdata():
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
     get_posteriors(rolling, sigma=0.25)
 
-
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
 
     print(" Len Moving Averages", len(ma))
