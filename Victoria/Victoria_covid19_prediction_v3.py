@@ -38,7 +38,6 @@ def getVicdata():
     plotVicCov19(flattened, rolling)
 
     print(" Len Moving Averages", len(rolling))
-
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
     get_posteriors(rolling, sigma=0.25)
 
