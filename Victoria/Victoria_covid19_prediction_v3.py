@@ -42,7 +42,6 @@ def getVicdata():
     get_posteriors(rolling, sigma=0.25)
 
 def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
-
     print(" Len Moving Averages", len(ma))
     print(" Len newtotalratio", len(newtotalratio))
     print("Sigma ", sigma)
