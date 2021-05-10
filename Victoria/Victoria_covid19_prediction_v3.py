@@ -22,7 +22,6 @@ def getVicdata():
     print("Head ", vicdata.head())
     vicdata['Date'] = vicdata['Date'].apply(lambda x: x.replace("/", "-"))
     print("Head After", vicdata.head())
-
     #print((vicdata['VIC'].describe()))
 
     vicdata['newDate'] = vicdata['Date'].apply(lambda x: str(x) + '-2020')
