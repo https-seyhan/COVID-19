@@ -49,7 +49,6 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
     r_t_range = np.linspace(0, R_T_MAX, len(newtotalratio))
     #r_t_range = np.linspace(0, R_T_MAX, R_T_MAX * 10 + 5)
     ma = ma.cases # get new cases to be used in the lambda calculation
-
     #print(" Cases Moving Averages", ma)
     #print("New total ratio ", newtotalratio)
 
