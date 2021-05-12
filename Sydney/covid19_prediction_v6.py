@@ -154,7 +154,6 @@ def get_posteriors(ma, sigma=0.15):
 
     # (3a) Normalize all rows to sum to 1
     process_matrix /= process_matrix.sum(axis=0)
-
     # (4) Calculate the initial prior
     # prior0 = sps.gamma(a=4).pdf(r_t_range)
     prior0 = np.ones_like(r_t_range) / len(r_t_range)
