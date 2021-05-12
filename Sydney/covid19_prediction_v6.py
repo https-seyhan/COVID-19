@@ -80,7 +80,6 @@ def plotgraphs(postcode):
     ax.set_xlabel('Date')
     plt.show()
 
-
 #for pc in range(len(top10postcodes)):
     #print(top10postcodes[pc])
     #plotgraphs(top10postcodes[pc])
