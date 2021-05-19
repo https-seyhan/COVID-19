@@ -54,7 +54,7 @@ def getVicdata():
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
     plotPosteriors(posteriors)
-   
+  
     hdi = highest_density_interval(posteriors, p=alpha, debug=True)
     # Note that this takes a while to execute - it's not the most efficient algorithm
     hdis = highest_density_interval(posteriors, p=alpha)
