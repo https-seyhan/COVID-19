@@ -18,6 +18,7 @@ from scipy.interpolate import interp1d
 from scipy import stats
 from datetime import datetime
 os.chdir('/home/saul/corona')
+
 #Since, this is an innovative Bayesian approach, all parts of this model and its related software codes are licensed under the MIT license.
 #Feel free to use the model. But, please recognise the author of the model in your use of my model as outlined in the MIT license and as respect to the intellectual property.
 
