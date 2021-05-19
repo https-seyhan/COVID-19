@@ -70,7 +70,7 @@ def plotCoeffs(posteriors, hdi, hdis):
     # Look into why you shift -1
     result = pd.concat([most_likely, hdis], axis=1)
     most_likely_values = posteriors.idxmax(axis=0)
-   
+  
     ax = most_likely_values.plot(marker='o',
                                  label='Most Likely',
                                  title=f'$R_t$ by day',
