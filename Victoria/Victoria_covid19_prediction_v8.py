@@ -78,7 +78,6 @@ def plotCoeffs(posteriors, hdi, hdis):
                     alpha=.1,
                     lw=0,
                     label='HDI')
-
     ax.legend();
     plt.show()
 
