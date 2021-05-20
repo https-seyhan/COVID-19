@@ -134,7 +134,7 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     # (1) Calculate Lambda
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
     #print("Sum two vectors ", sumtwovecs)
-   
+  
     #previous model
     #lam = ma[:-1].values * sumtwovecs
     #print("New Total Ratio ", newtotalratio[:, None])
