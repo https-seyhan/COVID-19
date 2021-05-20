@@ -206,7 +206,6 @@ def plotVicCov19(flattened, rolling):
 
     ax.legend(['Detected Cov-19 cases'])
     ax.plot(rolling, color='red', zorder=1, alpha=alpha, label = 'Fortnightly Moving Average of Detected Covid-19 cases')
-
     legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
     plt.show()
 
