@@ -98,6 +98,7 @@ def highest_density_interval(posteriors, p, debug=False):
     if (isinstance(posteriors, pd.DataFrame)):
         return pd.DataFrame([highest_density_interval(posteriors[col], p=p) for col in posteriors],
                             index=posteriors.columns)
+    
     cumsum = np.cumsum(posteriors.values)
    
     # N x N matrix of total probability mass for each low, high
