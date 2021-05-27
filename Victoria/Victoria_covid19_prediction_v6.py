@@ -15,7 +15,6 @@ period = 14 # moving average period is 14 days
 figsize = (1500 / 50, 400 / 50)
 alpha=.90
 coef = 90
-
 os.chdir('/home/saul/corona')
 
 def getVicdata():   
