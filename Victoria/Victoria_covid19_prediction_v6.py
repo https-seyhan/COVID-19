@@ -70,7 +70,6 @@ def highest_density_interval(posteriors, p, debug=False):
 
     low = posteriors.index[lows[best]]
     high = posteriors.index[highs[best]]
-
     return pd.Series([low, high],
                      index=[f'Low_{p * 100:.0f}',
                             f'High_{p * 100:.0f}'])
