@@ -67,7 +67,6 @@ def highest_density_interval(posteriors, p, debug=False):
 
     # Find the smallest range (highest density)
     best = (highs - lows).argmin()
-
     low = posteriors.index[lows[best]]
     high = posteriors.index[highs[best]]
     return pd.Series([low, high],
