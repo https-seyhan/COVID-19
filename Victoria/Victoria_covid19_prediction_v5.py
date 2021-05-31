@@ -41,7 +41,6 @@ def getVicdata():
     calculatenewcasestotalratio(vicdata)
     print("New Column Names ", vicdata.columns)
     print("New cases ratio describe ", vicdata['newcasestotalratio'].describe())
-
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
     plotPosteriors(posteriors)
