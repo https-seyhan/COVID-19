@@ -72,7 +72,6 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     print(" Len newtotalratio", len(newtotalratio))
     print("Sigma ", sigma)
 
-
     # We create an array for every possible value of Rt
 
     r_t_range = np.linspace(0, R_T_MAX, len(newtotalratio))
