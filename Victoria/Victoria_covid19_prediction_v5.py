@@ -33,6 +33,7 @@ def getVicdata():
                                 win_type='gaussian',
                                 min_periods=1,
                                 center=True).mean(std=2).round()
+    
     plotVicCov19(flattened, rolling)
     print(" Len Moving Averages", len(rolling))
     print("Moving Averages ", rolling.head())
