@@ -40,6 +40,7 @@ def getVicdata():
     print("Moving Averages ", rolling.head())
     calculateTotalCases(vicdata)   
     calculatenewcasestotalratio(vicdata)
+    
     print("New Column Names ", vicdata.columns)
     print("New cases ratio describe ", vicdata['newcasestotalratio'].describe())
     posteriors, log_likelihood = get_posteriors(rolling, vicdata['newcasestotalratio'], sigma=.25)
