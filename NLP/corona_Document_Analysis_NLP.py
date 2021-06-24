@@ -82,7 +82,6 @@ def readfile():
 	#remove duplicated rows
 	nodupcorona = coronafile.drop_duplicates(subset=None, keep='first', inplace=False)
 	print(len(nodupcorona))
-
 	#check source_x
 	#print(nodupcorona.source_x.unique()) #['CZI' 'PMC' 'biorxiv' 'medrxiv']
 
