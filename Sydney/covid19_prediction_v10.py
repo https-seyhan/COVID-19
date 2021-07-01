@@ -187,7 +187,7 @@ def highest_density_interval(pmf, p, debug=False):
 
     # N x N matrix of total probability mass for each low, high
     total_p = cumsum - cumsum[:, None]
-
+    
     # Return all indices with total_p > p
     lows, highs = (total_p > p).nonzero()
 
