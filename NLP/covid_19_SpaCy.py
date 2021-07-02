@@ -125,7 +125,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 				break
 		leftwords.reverse()
 
-
 		while ((len(cleandoc) >  end + moveright) and (str(cleandoc[end + moveright]) != ".") ):
 
 
