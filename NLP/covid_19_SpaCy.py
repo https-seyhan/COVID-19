@@ -117,7 +117,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		rightwords = []
 		string_id = nlp.vocab.strings[match_id]  # Get string representation
 		span = cleandoc[start:end]  # The matched span
-
 		print(start, end, span.text)
 		while ((len(cleandoc) >  start + moveleft) and (str(cleandoc[start - moveleft]) != ".") ):
 			leftwords.append(cleandoc[start - moveleft])
