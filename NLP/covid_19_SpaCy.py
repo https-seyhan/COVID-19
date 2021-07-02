@@ -131,7 +131,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 			if len(cleandoc) ==  end + moveright:
 				break
 			rightwords.append(cleandoc[end + moveright])
-
 		combinedList = leftwords + rightwords
 		sentence = ' '.join(map(str, combinedList))
 		sentence.replace(".","")
