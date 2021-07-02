@@ -119,7 +119,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		span = cleandoc[start:end]  # The matched span
 
 		print(start, end, span.text)
-
 		while ((len(cleandoc) >  start + moveleft) and (str(cleandoc[start - moveleft]) != ".") ):
 
 			leftwords.append(cleandoc[start - moveleft])
