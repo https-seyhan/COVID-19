@@ -105,7 +105,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	cleantext = [t.text for t in abstract if  not t.is_stop  and t.ent_type_ != 'GPE' ] # remove stop words. Exclude Geographic location
 	# convert list to nlp doc
 	cleandoc = Doc(nlp.vocab, words=cleantext)
-
 	matcher = Matcher(nlp.vocab)
 
 
