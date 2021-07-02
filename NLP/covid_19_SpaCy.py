@@ -74,7 +74,6 @@ def readfile():
 
 	#save duplicate rows to csv
 	duprows.to_csv("duplicates.csv")
-
 	#remove duplicate rows
 	nodupcorona = coronafile.drop_duplicates(subset=None, keep='first', inplace=False)
 	print(len(nodupcorona))
