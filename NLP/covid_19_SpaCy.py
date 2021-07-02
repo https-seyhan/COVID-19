@@ -116,7 +116,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 
 		moveleft = 0
 		moveright = 0
-
 		leftwords = []
 		rightwords = []
 
