@@ -116,7 +116,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		moveright = 0
 		leftwords = []
 		rightwords = []
-
 		string_id = nlp.vocab.strings[match_id]  # Get string representation
 		span = cleandoc[start:end]  # The matched span
 
