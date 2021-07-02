@@ -137,7 +137,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		sentence.replace(".","")
 		#print("Combined Words ", combinedList, 'SHA ', sha, 'Keyword ', span.text)
 		print("Sentence ", sentence, 'SHA ', sha, 'Keyword ', span.text)
-
 		medical_care.append([sha, span.text, sentence])
 
 
