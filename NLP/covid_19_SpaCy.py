@@ -97,7 +97,6 @@ def nlpWork(abstract, textcount):
 	wordcount = 0
 	for words in abstract:
 		wordcount +=1
-
 		coronaAnalysis(words[0], nlp(words[1]), wordcount, textcount)
 
 
