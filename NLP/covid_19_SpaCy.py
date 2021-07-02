@@ -92,7 +92,6 @@ def analyseAbstract(sha, abstract, textcount):
 	for sha, abst in zip(sha, abstract):
 		abstractList.append([sha, abst]) #allocate each abstract into list
 	cleanabstracts = [word for word in abstractList if str(word[1]) != 'nan']
-
 	nlpWork(cleanabstracts, textcount)
 
 def nlpWork(abstract, textcount):
