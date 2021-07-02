@@ -108,6 +108,7 @@ def coronaAnalysis(sha, abstract, count, textcount):
 	matcher.add("medicalcare", None, pattern1, pattern2, pattern3, pattern4, pattern5, pattern6,
 				pattern7, pattern8, pattern9, pattern10, pattern11, pattern12, pattern13, pattern14, pattern15,
 				pattern16, pattern17, pattern18, pattern19, pattern20, pattern21, pattern22)
+	
 	matches = matcher(cleandoc)
 	for match_id, start, end in matches:
 		moveleft = 0
