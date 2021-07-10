@@ -67,7 +67,6 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
 
     # (3a) Normalize all rows to sum to 1
     process_matrix /= process_matrix.sum(axis=0)
-
     # (4) Calculate the initial prior
     prior0 = np.ones_like(r_t_range) / len(r_t_range)
 
