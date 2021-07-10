@@ -56,4 +56,3 @@ def getVicdata():
 
 if __name__ == '__main__':
     getVicdata()
-
