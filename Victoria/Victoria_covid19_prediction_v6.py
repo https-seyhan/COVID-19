@@ -57,7 +57,7 @@ def highest_density_interval(posteriors, p, debug=False):
     if (isinstance(posteriors, pd.DataFrame)):
         return pd.DataFrame([highest_density_interval(posteriors[col], p=p) for col in posteriors],
                             index=posteriors.columns)
-    
+   
     cumsum = np.cumsum(posteriors.values)
     print("Posterior Values", posteriors.values)
 
