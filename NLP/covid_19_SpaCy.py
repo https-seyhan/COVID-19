@@ -142,7 +142,6 @@ if __name__ == '__main__':
 	start = time.time()
 
 	readfile()
-
 	print("word freq is being written into csv")
 	#bow.to_csv('wordfreq.csv', sep=',', index=False)
 	df = pd.DataFrame(medical_care, columns=['sha', 'keyword', 'medical_care'])
