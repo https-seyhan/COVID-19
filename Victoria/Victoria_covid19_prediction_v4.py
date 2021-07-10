@@ -122,4 +122,3 @@ def plotVicCov19(flattened, rolling):
 
 if __name__ == '__main__':
     getVicdata()
-
