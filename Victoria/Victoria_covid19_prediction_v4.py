@@ -51,7 +51,6 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
     sumtwovecs = np.exp(GAMMA * ((r_t_range[:, None] - 1)))
     #previous model
     #lam = ma[:-1].values * sumtwovecs
-
     #improved model
     lam = ma[:-1].values * sumtwovecs + newtotalratio[:, None]
 
