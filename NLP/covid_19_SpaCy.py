@@ -137,7 +137,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 		print("Sentence ", sentence, 'SHA ', sha, 'Keyword ', span.text)
 		medical_care.append([sha, span.text, sentence])
 
-
 if __name__ == '__main__':
 	print("Process Started!!!")
 	start = time.time()
