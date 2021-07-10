@@ -32,7 +32,6 @@ def getVicdata():
                                 win_type='gaussian',
                                 min_periods=1,
                                 center=True).mean(std=2).round()
- 
     #posteriors, log_likelihood = get_posteriors(movingAverage, AUdailytests['newcasestotalratio'], sigma=.25)
     #get_posteriors(rolling, sigma=0.25)
 
