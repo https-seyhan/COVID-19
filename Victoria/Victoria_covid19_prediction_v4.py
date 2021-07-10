@@ -104,6 +104,7 @@ def get_posteriors(ma, newtotalratio = [1,1], sigma=0.15):
 
 def plotVicCov19(flattened, rolling):
     fig, ax = plt.subplots(figsize=figsize)
+    
     # Formatting
     ax.xaxis.set_major_locator(mdates.MonthLocator())
     ax.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
