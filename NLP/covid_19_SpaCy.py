@@ -61,6 +61,7 @@ medical_care = [['', '', '']]
 customize_stop_words = [
      "\xa0", ','
 ]
+
 for w in customize_stop_words:
     nlp.vocab[w].is_stop = True
 
