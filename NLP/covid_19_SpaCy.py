@@ -143,7 +143,6 @@ def coronaAnalysis(sha, abstract, count, textcount):
 if __name__ == '__main__':
 	print("Process Started!!!")
 	start = time.time()
-
 	readfile()
 	print("word freq is being written into csv")
 	#bow.to_csv('wordfreq.csv', sep=',', index=False)
