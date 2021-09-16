@@ -123,7 +123,7 @@ def get_posteriors(ma, newtotalratio, sigma=0.15):
     lam = ma[:-1].values * np.exp(GAMMA * (r_t_range[:, None] - 1))
     powercalc = GAMMA * ((r_t_range[:, None] - 1)  + newtotalratio[:, None].T)
     #print("Stats on powercalc ", stats.describe(powercalc))
-
+    
     #print("Power Calc ", GAMMA * (r_t_range[:, None] - 1))
     print("newtotalratio ", newtotalratio)
 
