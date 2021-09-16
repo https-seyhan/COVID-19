@@ -70,7 +70,7 @@ def plotNSW():
     flattened = pd.DataFrame(summaydata.to_records())
     flattened.set_index('date', inplace=True)
     print("Flattened ", flattened.head(5))
-  
+ 
     rolling = flattened.rolling(14,
                                  win_type='gaussian',
                                  min_periods=1,
