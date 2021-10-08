@@ -58,7 +58,7 @@ def plotgraphs(postcode):
     flattened = pd.DataFrame(summaydata.to_records())
     # make time the index (this will help with plot ticks)
     flattened.set_index('notification_date', inplace=True)
- 
+
     fig, ax = plt.subplots(figsize=(1500 / 50, 400 / 50))
     #ax = sb.lineplot(data=flattened)
     # Plot dots and line
